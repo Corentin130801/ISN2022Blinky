@@ -1,0 +1,14 @@
+* Backlog 
+
+Globalement bien.
+
+* Backlog sprint 1
+
+L'objectif du sprint n'est pas clair; déplacer un héros dans le
+labyrinthe?
+Les fonctionnalités non plus:
+- attaques contre qui?
+- santé?
+Il faut faire comme dans le backlog global.
+
+Pourquoi seulement 3 contributerus?
