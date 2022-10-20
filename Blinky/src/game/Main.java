@@ -16,6 +16,8 @@ public class Main {
 		GamePlan gamePlan = new GamePlan();
 		window.add(gamePlan);
 		window.pack(); // pour pouvoir voir la fenêtre
+		//ceci est un test 
+		
 
 }
 }
