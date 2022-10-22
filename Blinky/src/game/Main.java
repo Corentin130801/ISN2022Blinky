@@ -4,6 +4,8 @@ import javax.swing.JFrame; // Cela ajoute une fen�tre avec une bordure et une 
 
 public class Main {
 	
+	public static Scene scene; //
+	
 	public static void main(String[] args) {
 		
 		JFrame window = new JFrame();
@@ -11,13 +13,16 @@ public class Main {
 		window.setTitle("Blinky"); // pour afficher le titre
 		window.setResizable(false); // permet de donner la taille qu'on veut � la fen�tre sans qu'elle soit redimensionn�e
 		window.setLocationRelativeTo(null); // pas de location sp�cifi�e, windows la placera au centre
-		window.setVisible(true);
+		
 		
 		GamePlan gamePlan = new GamePlan();
 		window.add(gamePlan);
 		window.pack(); // pour pouvoir voir la fen�tre
-		//ceci est un test 
-		//test leo
-
+		
+		
+		scene = new Scene(); //instanciation de l'objet scene 
+			
+			window.setContentPane(scene);
+			window.setVisible(true);
 }
 }
