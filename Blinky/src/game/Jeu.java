@@ -47,7 +47,7 @@ public class Jeu extends JPanel implements Runnable{
 		double drawInterval= 1000000000/FPS; //conversion du temps en seconde 
 		double nextDrawTime=System.nanoTime()+ drawInterval;
 		while(gameThread !=null) {
-			//System.out.println(entrerClavier.upPressed);
+			//System.out.println(entrerClavier.toucheZ);
 			//update
 			//long currentTime=System.nanoTime();
 			//System.out.println("time"+currentTime);
@@ -73,17 +73,17 @@ public class Jeu extends JPanel implements Runnable{
 			
 			joueeur.update();
 		}
-			/*if(entrerClavier.upPressed==true) {
+			/*if(entrerClavier.toucheZ==true) {
 				playerY-=playerSpeed;
 				
 			}
-			else if(entrerClavier.downPressed==true) {
+			else if(entrerClavier.toucheS==true) {
 				playerY+=playerSpeed;
 			}
-			else if(entrerClavier.rightPressed==true) {
+			else if(entrerClavier.toucheD==true) {
 				playerX-=playerSpeed;	
 					}
-			else if(entrerClavier.leftPressed==true) {
+			else if(entrerClavier.toucheQ==true) {
 				playerX+=playerSpeed;	
 					}
 			

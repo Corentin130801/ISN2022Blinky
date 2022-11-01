@@ -24,19 +24,24 @@ public class Joueur extends Parentsobject {
 		//10.49(ici on récupère les info dans le dossier ressource pour ensuite les upload)
 	}
 	public void update() {
-		if(entrerClavier.upPressed==true) {
-		y-=speed;
+		/*cette section met a jour la position du joueur  selon les action choisi par le joueur*/
+		if(entrerClavier.toucheZ==true) {
+		y-=speed;//on va en haut
 		
 	}
-	else if(entrerClavier.downPressed==true) {
-		y+=speed;
+	 if(entrerClavier.toucheS==true) {
+		y+=speed;//on va en bas
 	}
-	else if(entrerClavier.rightPressed==true) {
-		x-=speed;	
+	 if(entrerClavier.toucheD==true) {
+		x-=speed;	//on va  à droite
 			}
-	else if(entrerClavier.leftPressed==true) {
-		x+=speed;	
+	 if(entrerClavier.toucheQ==true) {
+		x+=speed;	// on va à gauche
 			}}
+	/*note
+	 *  si on ne veut pas avoir l'option d'aller en diagonal il faut rajouté un else devant les trois dernier if
+	 *  aller en diagonal augmente la vitesse par2 si on ne veut pas que cela ce produise il faut rajouter des else if avec une condition du style
+	 *  (entrerClavier.toucheS==true andentrerClavier.toucheD==true) */
 	
 	public void draw(Graphics2D g2){
 		g2.setColor(Color.white);
