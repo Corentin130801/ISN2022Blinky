@@ -19,10 +19,10 @@ public class Keyinput implements KeyListener{
 		if(code==KeyEvent.VK_S) {
 			toucheS=true;
 				}
-		if(code==KeyEvent.VK_D) {
+		if(code==KeyEvent.VK_Q) {
 			toucheQ=true;
 		}
-		if(code==KeyEvent.VK_Q) {
+		if(code==KeyEvent.VK_D) {
 			toucheD=true;
 				}
 	}
@@ -37,10 +37,10 @@ public class Keyinput implements KeyListener{
 		if(code==KeyEvent.VK_S) {
 			toucheS=false;
 				}
-		if(code==KeyEvent.VK_D) {
+		if(code==KeyEvent.VK_Q) {
 			toucheQ=false;
 		}
-		if(code==KeyEvent.VK_Q) {
+		if(code==KeyEvent.VK_D) {
 			toucheD=false;
 				}
 	}
