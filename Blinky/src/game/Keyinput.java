@@ -12,7 +12,7 @@ public class Keyinput implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		int  code =e.getKeyCode();
+		int  code =e.getKeyCode(); // retourne le keyCode associé à la touche pressee	 
 		if(code==KeyEvent.VK_Z) {
 			toucheZ=true;
 		}

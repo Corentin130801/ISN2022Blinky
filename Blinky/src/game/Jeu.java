@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import object.Joueur;
+
+import object.Joueur;
 @SuppressWarnings("serial")
 public class Jeu extends JPanel implements Runnable{
 	/*ici ce trouve toutes les variables qui paramétrise la fenêtre de jeu*/
@@ -17,10 +19,10 @@ public class Jeu extends JPanel implements Runnable{
 	final int ligneEcran=12;
 	final int largeurEcran=tailleCarreaux*colonneEcran;
 	final int hauteurEcran=tailleCarreaux*ligneEcran;
-	final int FPS=60;
+	int FPS=60;
 	Keyinput entrerClavier =new Keyinput();
 	Thread gameThread;
-	Joueur joueeur= new Joueur(this,entrerClavier);
+	Joueur joueur= new Joueur(this,entrerClavier);
 	//position du joueur
 	int playerX=100;
 	int playerY=100;
@@ -29,8 +31,8 @@ public class Jeu extends JPanel implements Runnable{
 		this.setPreferredSize(new Dimension(largeurEcran,hauteurEcran ));
 		this.setBackground(Color.black);//couleur du fond
 		this.setDoubleBuffered(true);
-		this.addKeyListener(entrerClavier);
-		this.setFocusable(true);
+		this.addKeyListener(entrerClavier); // le Jeu pourra reconnaître le KeyInput
+		this.setFocusable(true); //le Jeu pourra être focus pour recevoir KeyInput
 		
 	}
 	public void startGameThread() {
@@ -49,7 +51,7 @@ public class Jeu extends JPanel implements Runnable{
 		while(gameThread !=null) {
 			//System.out.println(entrerClavier.toucheZ);
 			//update
-			//long currentTime=System.nanoTime();
+			long currentTime=System.nanoTime();
 			//System.out.println("time"+currentTime);
 			update();
 			//Draw
@@ -61,18 +63,18 @@ public class Jeu extends JPanel implements Runnable{
 				if(remainingTime<0) {
 					remainingTime=0;
 				}
-				Thread.sleep((long)remainingTime);// on l'utilise ici pour finaliser les frame dans le thread
+				Thread.sleep((long)remainingTime);// on l'utilise ici pour finaliser les frame dans le thread, cette methode accepte que des long
 				nextDrawTime+=drawInterval;
 			}catch(InterruptedException e) {
 				e.printStackTrace();
 			}
-			//Thread.sleep((long)remainingTime);
+			  
 			
 		}}
 		public void update() {
 			
-			joueeur.update();
-		}
+			joueur.update();
+		
 			/*if(entrerClavier.toucheZ==true) {
 				playerY-=playerSpeed;
 				
@@ -85,13 +87,13 @@ public class Jeu extends JPanel implements Runnable{
 					}
 			else if(entrerClavier.toucheQ==true) {
 				playerX+=playerSpeed;	
-					}
-			
-		}*/ 
-		public void paintComponent(Graphics g) {
-			super.paintComponent(g);
+					}*/			
+		} 
+		
+		public void paintComponent(Graphics g) {  // une methode pour dessiner des choses qui appartient à JPanel, Grapihcs est une classe pour dessiner des objets
+			super.paintComponent(g); //une formalite de paintComponent
 			Graphics2D g2=(Graphics2D)g;
-			joueeur.draw(g2);
+			joueur.draw(g2);
 			/*g2.setColor(Color.white);
 			g2.fillRect(playerX,playerY,tailleCarreaux/2 , tailleCarreaux/2);*/
 			g2.dispose();
