@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
+import decor.GestionDecor;
 import object.Joueur;
 
 import object.Joueur;
@@ -20,13 +21,13 @@ public class Jeu extends JPanel implements Runnable{
 	final int largeurEcran=tailleCarreaux*colonneEcran;
 	final int hauteurEcran=tailleCarreaux*ligneEcran;
 	int FPS=60;
+	
+	GestionDecor gestionD = new GestionDecor(this);
 	Keyinput entrerClavier =new Keyinput();
 	Thread gameThread;
 	Joueur joueur= new Joueur(this,entrerClavier);
-	//position du joueur
-	int playerX=100;
-	int playerY=100;
-	int playerSpeed=4;
+
+	
 	public Jeu() {
 		this.setPreferredSize(new Dimension(largeurEcran,hauteurEcran ));
 		this.setBackground(Color.black);//couleur du fond
@@ -93,7 +94,11 @@ public class Jeu extends JPanel implements Runnable{
 		public void paintComponent(Graphics g) {  // une methode pour dessiner des choses qui appartient à JPanel, Grapihcs est une classe pour dessiner des objets
 			super.paintComponent(g); //une formalite de paintComponent
 			Graphics2D g2=(Graphics2D)g;
+			
+			gestionD.draw(g2);  // on dessine le decor avant le joueur pour pas que le joueur soit cache
+			
 			joueur.draw(g2);
+			
 			/*g2.setColor(Color.white);
 			g2.fillRect(playerX,playerY,tailleCarreaux/2 , tailleCarreaux/2);*/
 			g2.dispose();
