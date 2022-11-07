@@ -1,7 +1,10 @@
 package decor;
 
 import java.awt.Graphics2D;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
 
@@ -11,13 +14,17 @@ public class GestionDecor {
 	
 	Jeu nouveaujeu;
 	Decor[] decor;
+	int mapNbCarreaux[][];
 	
 	public GestionDecor(Jeu nouveaujeu) {
 		this.nouveaujeu = nouveaujeu;
 		// determiner la taille du Decor[]
 		decor= new Decor[10];  // creation de 10 decors differents
 		
+		mapNbCarreaux = new int[nouveaujeu.colonneEcran][nouveaujeu.ligneEcran];
+		
 		getDecorImage();
+		//loadMap("/maps/map01.txt");
 	}
 	
 	public void getDecorImage() {  // meme facon qu'avec les differentes images du hero dans la classe joueur
@@ -37,8 +44,45 @@ public class GestionDecor {
 		
 	}
 	
+	public void loadMap(String lien) {
+		try {
+			InputStream is = getClass().getResourceAsStream(lien);
+			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		
+		
+			int colonne=0;
+			int ligne=0;
+			
+			while(colonne<nouveaujeu.colonneEcran && ligne< nouveaujeu.ligneEcran) {
+				
+				String line = br.readLine(); // lis les lignes et les mets dans le string line
+				
+				while(colonne<nouveaujeu.colonneEcran) {
+					String numbers[] = line.split(" "); // supprime les espaces et split chaque numero
+					
+					int num = Integer.parseInt(numbers[colonne]); // on convertit les strings en nombre
+					
+					mapNbCarreaux[colonne][ligne] = num;
+					
+					
+				}
+				
+				if(colonne == nouveaujeu.colonneEcran) {
+					colonne=0;
+					ligne++;
+				}
+				
+			}
+			br.close();
+		}catch(Exception e) {
+		
+		}
+	}	
+	
+	
 	public void draw(Graphics2D g2) {
 		
+		// 1e methode mais ne fonctionne pas car le perso se teleporte
 		// x et y coordonnées  ;  tous les 48 car un carreau fait 48 de L et l
 		
 		// placer des murs autour, a titre d'exemple
@@ -62,9 +106,61 @@ public class GestionDecor {
 				
 			}			
 		*/
-	}
+	// 2e methode :  on recouvre tout le plateau de sable mais assez contraignant
+	
+			int colonne=0;
+			int ligne=0;
+			int x=0;
+			int y=0;
+			
+			while(colonne<nouveaujeu.colonneEcran && ligne < nouveaujeu.ligneEcran) {
+				
+				g2.drawImage(decor[0].image,x,y,nouveaujeu.tailleCarreaux,nouveaujeu.tailleCarreaux,null);
+				colonne++;
+				x+=nouveaujeu.tailleCarreaux;
+				
+				if(colonne==nouveaujeu.colonneEcran) {
+					colonne=0;
+					x=0;
+					ligne++;
+					y+=nouveaujeu.tailleCarreaux;
+				}
+				
+			}
+	
+	
+		
+	// 3e methode : avec l'utilisation d'un fichier texte et grace a la fonction loadMap
+	
+	
+			/*int colonne=0;
+			int ligne=0;
+			int x=0;
+			int y=0;
+			
+			while(colonne < nouveaujeu.colonneEcran && ligne < nouveaujeu.ligneEcran) {
+				
+				int NbCarreaux = mapNbCarreaux[colonne][ligne];  // recuperer le numero de quel matière on veut notre carreau
+				
+				g2.drawImage(decor[NbCarreaux].image,x,y,nouveaujeu.tailleCarreaux,nouveaujeu.tailleCarreaux,null);
+				colonne++;
+				x+=nouveaujeu.tailleCarreaux;
+				
+				if(colonne==nouveaujeu.colonneEcran) {
+					colonne=0;
+					x=0;
+					ligne++;
+					y+=nouveaujeu.tailleCarreaux;
+				}
+				
+			}*/		
+			
+		}
+		
 		
 	}
+		
+	
 	
 	
 

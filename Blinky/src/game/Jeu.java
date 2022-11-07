@@ -16,10 +16,10 @@ public class Jeu extends JPanel implements Runnable{
 	final int tailleDeBase=16; 
 	final int echelle=3; 
 	public final int tailleCarreaux=tailleDeBase*echelle;
-	final int colonneEcran=16;
-	final int ligneEcran=12;
-	final int largeurEcran=tailleCarreaux*colonneEcran;
-	final int hauteurEcran=tailleCarreaux*ligneEcran;
+	public final int colonneEcran=16;
+	public final int ligneEcran=12;
+	public final int largeurEcran=tailleCarreaux*colonneEcran;
+	public final int hauteurEcran=tailleCarreaux*ligneEcran;
 	int FPS=60;
 	
 	GestionDecor gestionD = new GestionDecor(this);
