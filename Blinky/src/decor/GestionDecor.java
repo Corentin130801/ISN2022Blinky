@@ -55,13 +55,13 @@ public class GestionDecor {
 	
 		// placer du sable au centre de la carte
 		
-		for(int x=48;x<=48*14;x++) {
+	/*	for(int x=48;x<=48*14;x++) {
 			for(int y=48;y<=10*48;y++) {
 				g2.drawImage(decor[0].image,x , y, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
 			}
 				
 			}			
-		
+		*/
 	}
 		
 	}

@@ -28,6 +28,7 @@ public class Joueur extends Parentsobject {
 		direction="bas";}
 	public void imageUpload() {
 		try {
+			/*les object sont dans la classe parent*/
 			up1=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_up_1.png"));
 			up2=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_up_2.png"));
 			down1=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_down_1.1.png"));
@@ -36,6 +37,7 @@ public class Joueur extends Parentsobject {
 			left2=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_left_2.1.png"));
 			right1=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_right_1.1.png"));
 			right2=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_right_2.png"));
+			toutedirection=ImageIO.read(getClass().getResourceAsStream("/joueur/perso2.png"));
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
@@ -106,8 +108,9 @@ public class Joueur extends Parentsobject {
 		g2.fillRect(x,y,nouveaujeu.tailleCarreaux/2 , nouveaujeu.tailleCarreaux/2);*/
 		
 		
-		BufferedImage image = null;
-		switch(direction) {
+		BufferedImage image = toutedirection;
+		
+		/*switch(direction) {
 		case"haut":
 			if(spriteNum==1) {
 				image=up1;
@@ -152,7 +155,7 @@ public class Joueur extends Parentsobject {
 		case"diagonale bas gauche":
 			image=down1;
 			break;
-		}
+		}*/
 		g2.drawImage(image,x,y, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
 		
 	}
