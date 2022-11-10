@@ -23,3 +23,5 @@ public class Clavier implements KeyListener {
 	public void keyReleased(KeyEvent e) {}
 
 }
+
+//Inutile pour l instant

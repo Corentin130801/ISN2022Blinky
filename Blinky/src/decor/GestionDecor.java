@@ -13,8 +13,8 @@ import game.Jeu;
 public class GestionDecor {
 	
 	Jeu nouveaujeu;
-	Decor[] decor;
-	int mapNbCarreaux[][];
+	public Decor[] decor;
+	public int mapNbCarreaux[][];
 	
 	public GestionDecor(Jeu nouveaujeu) {
 		this.nouveaujeu = nouveaujeu;
@@ -24,7 +24,7 @@ public class GestionDecor {
 		mapNbCarreaux = new int[nouveaujeu.colonneEcran][nouveaujeu.ligneEcran];
 		
 		getDecorImage();
-		//loadMap("/maps/map01.txt");
+		loadMap();
 	}
 	
 	public void getDecorImage() {  // meme facon qu'avec les differentes images du hero dans la classe joueur
@@ -36,7 +36,9 @@ public class GestionDecor {
 			
 			decor[1]=new Decor();
 			decor[1].image = ImageIO.read(getClass().getResourceAsStream("/decors/mur.png"));
-					
+			decor[1].collision = true ;
+			
+			
 		}catch(IOException e){
 			e.printStackTrace();   // pour trouver les exceptions
 			
@@ -44,9 +46,9 @@ public class GestionDecor {
 		
 	}
 	
-	public void loadMap(String lien) {
+	public void loadMap() {
 		try {
-			InputStream is = getClass().getResourceAsStream(lien);
+			InputStream is = getClass().getResourceAsStream("/maps/map01.txt");
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 		
 		
@@ -63,6 +65,7 @@ public class GestionDecor {
 					int num = Integer.parseInt(numbers[colonne]); // on convertit les strings en nombre
 					
 					mapNbCarreaux[colonne][ligne] = num;
+					colonne++;
 					
 					
 				}
@@ -83,7 +86,7 @@ public class GestionDecor {
 	public void draw(Graphics2D g2) {
 		
 		// 1e methode mais ne fonctionne pas car le perso se teleporte
-		// x et y coordonnées  ;  tous les 48 car un carreau fait 48 de L et l
+		// x et y coordonnï¿½es  ;  tous les 48 car un carreau fait 48 de L et l
 		
 		// placer des murs autour, a titre d'exemple
 		for(int x=0;x<16;x++) {
@@ -114,8 +117,8 @@ public class GestionDecor {
 			int y=0;
 			
 			while(colonne<nouveaujeu.colonneEcran && ligne < nouveaujeu.ligneEcran) {
-				
-				g2.drawImage(decor[0].image,x,y,nouveaujeu.tailleCarreaux,nouveaujeu.tailleCarreaux,null);
+				int NbCarreaux = mapNbCarreaux[colonne][ligne];
+				g2.drawImage(decor[NbCarreaux].image,x,y,nouveaujeu.tailleCarreaux,nouveaujeu.tailleCarreaux,null);
 				colonne++;
 				x+=nouveaujeu.tailleCarreaux;
 				
@@ -140,7 +143,7 @@ public class GestionDecor {
 			
 			while(colonne < nouveaujeu.colonneEcran && ligne < nouveaujeu.ligneEcran) {
 				
-				int NbCarreaux = mapNbCarreaux[colonne][ligne];  // recuperer le numero de quel matière on veut notre carreau
+				int NbCarreaux = mapNbCarreaux[colonne][ligne];  // recuperer le numero de quel matiï¿½re on veut notre carreau
 				
 				g2.drawImage(decor[NbCarreaux].image,x,y,nouveaujeu.tailleCarreaux,nouveaujeu.tailleCarreaux,null);
 				colonne++;
