@@ -12,7 +12,7 @@ import object.Joueur;
 import object.Joueur;
 @SuppressWarnings("serial")
 public class Jeu extends JPanel implements Runnable{
-	/*ici ce trouve toutes les variables qui paramétrise la fenêtre de jeu*/
+	/*ici ce trouve toutes les variables qui paramï¿½trise la fenï¿½tre de jeu*/
 	final int tailleDeBase=16; 
 	final int echelle=3; 
 	public final int tailleCarreaux=tailleDeBase*echelle;
@@ -25,6 +25,7 @@ public class Jeu extends JPanel implements Runnable{
 	GestionDecor gestionD = new GestionDecor(this);
 	Keyinput entrerClavier =new Keyinput();
 	Thread gameThread;
+	public VerifierCollision Verifier = new VerifierCollision(this);
 	Joueur joueur= new Joueur(this,entrerClavier);
 
 	
@@ -32,8 +33,8 @@ public class Jeu extends JPanel implements Runnable{
 		this.setPreferredSize(new Dimension(largeurEcran,hauteurEcran ));
 		this.setBackground(Color.black);//couleur du fond
 		this.setDoubleBuffered(true);
-		this.addKeyListener(entrerClavier); // le Jeu pourra reconnaître le KeyInput
-		this.setFocusable(true); //le Jeu pourra être focus pour recevoir KeyInput
+		this.addKeyListener(entrerClavier); // le Jeu pourra reconnaï¿½tre le KeyInput
+		this.setFocusable(true); //le Jeu pourra ï¿½tre focus pour recevoir KeyInput
 		
 	}
 	public void startGameThread() {
@@ -43,8 +44,8 @@ public class Jeu extends JPanel implements Runnable{
 	}
 	@Override
 	public void run() {
-		/* ici on fait une interval de temps notre but est d'avoir 60Fps c'est à dire soixante frame par seconde
-		 * pour cela on prend un temps en nano en nanoseconde (system.nanotime) et on rajoute a ça le temps d'une frame 
+		/* ici on fait une interval de temps notre but est d'avoir 60Fps c'est ï¿½ dire soixante frame par seconde
+		 * pour cela on prend un temps en nano en nanoseconde (system.nanotime) et on rajoute a ï¿½a le temps d'une frame 
 		 * 
 		 */
 		double drawInterval= 1000000000/FPS; //conversion du temps en seconde 
@@ -91,7 +92,7 @@ public class Jeu extends JPanel implements Runnable{
 					}*/			
 		} 
 		
-		public void paintComponent(Graphics g) {  // une methode pour dessiner des choses qui appartient à JPanel, Grapihcs est une classe pour dessiner des objets
+		public void paintComponent(Graphics g) {  // une methode pour dessiner des choses qui appartient ï¿½ JPanel, Grapihcs est une classe pour dessiner des objets
 			super.paintComponent(g); //une formalite de paintComponent
 			Graphics2D g2=(Graphics2D)g;
 			

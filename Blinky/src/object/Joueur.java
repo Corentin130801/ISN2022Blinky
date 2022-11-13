@@ -4,6 +4,7 @@ import game.Keyinput;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -18,6 +19,13 @@ public class Joueur extends Parentsobject {
 	public Joueur (Jeu nouveaujeu,Keyinput entrerClavier) {
 		this.nouveaujeu=nouveaujeu;
 		this.entrerClavier=entrerClavier;
+		
+		solidArea= new Rectangle();
+		solidArea.x=8;
+		solidArea.y=16;
+		solidArea.width=32;
+		solidArea.height=32;
+		
 		positionetvitessededepart();
 		imageUpload();
 }
@@ -41,46 +49,67 @@ public class Joueur extends Parentsobject {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		// 10.49(ici on récupère les info dans le dossier ressource pour ensuite les upload)
+		// 10.49(ici on rï¿½cupï¿½re les info dans le dossier ressource pour ensuite les upload)
 	}
 	public void update() {
 		/*cette section met a jour la position du joueur  selon les action choisi par le joueur, cette methode update est appele 60 fois par seconde*/
+		if(entrerClavier.toucheZ==true ||entrerClavier.toucheQ==true||
+				entrerClavier.toucheS==true ||entrerClavier.toucheD==true) {
+		
 		if(entrerClavier.toucheZ==true && entrerClavier.toucheQ==true) {
-			x-=speed;
-			y-=speed/2;
-			direction="diagonal haut droite";
+			
+			direction="diagonal haut gauche";
 		}
 		else if(entrerClavier.toucheS==true && entrerClavier.toucheD==true) {
-			x+=speed;
-			y+=speed/2;
+			
 			direction="diagonal bas droite";
 		}
 		else if(entrerClavier.toucheS==true && entrerClavier.toucheQ==true) {
-			x-=speed;
-			y+=speed/2;
+			
 			direction="diagonal bas gauche";
 		}
 		else if(entrerClavier.toucheZ==true && entrerClavier.toucheD==true) {
-			x+=speed;
-			y-=speed/2;
-			direction="diagonal haut gauche";
+			
+			direction="diagonal haut droite";
 		}
 		else if(entrerClavier.toucheZ==true) {
-			y-=speed;//on va en haut
-			direction="bas";}
+			//on va en haut
+			direction="haut";}
 		
 		else if(entrerClavier.toucheS==true) {
-		y+=speed;//on va en bas
-		direction="haut";
+		//on va en bas
+		direction="bas";
 	}
 		else if(entrerClavier.toucheD==true) {
-		x+=speed;	//on va  a droite
+			//on va  a droite
 		direction="droite";
 			}
 		else if(entrerClavier.toucheQ==true) {
-		x-=speed;
+		
 		direction="gauche";// on va a gauche
 			}
+		// Verification des collision
+		
+		CollisionOn = false ;
+		nouveaujeu.Verifier.VerifierDecor(this); 
+		
+		// Si collision est fausse, il peut bouger
+		
+		if(CollisionOn== false) {
+			switch(direction) {
+			case"haut":y-=speed;break;
+			case"bas":y+=speed;break;
+			case "droite":x+=speed;break;
+			case"gauche":x-=speed;break;
+			case "diagonal haut droite":x-=speed;y-=speed/2;break;
+			case"diagonal bas droite":x+=speed;y+=speed/2;break;
+			case "diagonal haut gauche":x+=speed;y-=speed/2;break;
+			case"diagonal bas gauche":x-=speed;y+=speed/2;break;
+		}
+	}
+		
+		
+		
 			spriteCounter++; // le compteur augmente de 1 a chaque frame
 			if(spriteCounter>10) {
 				// on va changer l'image toutes les 10 frames sachant qu'il y en a 60/s, ce qui implique qu'on verra l'hero courir
@@ -94,12 +123,13 @@ public class Joueur extends Parentsobject {
 				spriteCounter=0; // on le reinitialise
 			}
 		}
+	}
 /*On peut rajouter si l'on veut l'option que le perso ne bouge pas quand on appuie sur aucune touche en remettant toute la partie d'avant
  * dans un autre if si on touche aucune touche */	
  
 	
 	/*note
-	 *  si on ne veut pas avoir l'option d'aller en diagonal il faut rajouté un else devant les trois dernier if
+	 *  si on ne veut pas avoir l'option d'aller en diagonal il faut rajoutï¿½ un else devant les trois dernier if
 	 *  aller en diagonal augmente la vitesse par2 si on ne veut pas que cela ce produise il faut rajouter des else if avec une condition du style
 	 *  (entrerClavier.toucheS==true andentrerClavier.toucheD==true) */
 	
