@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>res/decors/joueur3.png</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/res/joueur/joueur3.png</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

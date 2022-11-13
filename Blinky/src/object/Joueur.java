@@ -37,7 +37,7 @@ public class Joueur extends Parentsobject {
 			left2=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_left_2.1.png"));
 			right1=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_right_1.1.png"));
 			right2=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_right_2.png"));
-			toutedirection=ImageIO.read(getClass().getResourceAsStream("/joueur/perso2.png"));
+			toutedirection=ImageIO.read(getClass().getResourceAsStream("/joueur/joueur3.png"));
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
@@ -109,7 +109,7 @@ public class Joueur extends Parentsobject {
 		
 		
 		BufferedImage image = toutedirection;
-		
+	/*ici on peut mettre des images pour rendre les déplacements réaliste et dans ce cas il faut mettre null sur la ligne du sessus*/
 		/*switch(direction) {
 		case"haut":
 			if(spriteNum==1) {

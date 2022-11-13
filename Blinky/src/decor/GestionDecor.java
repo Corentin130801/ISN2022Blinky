@@ -108,7 +108,7 @@ public class GestionDecor {
 		*/
 	// 2e methode :  on recouvre tout le plateau de sable mais assez contraignant
 	
-			int colonne=0;
+			/*int colonne=0;
 			int ligne=0;
 			int x=0;
 			int y=0;
@@ -126,14 +126,14 @@ public class GestionDecor {
 					y+=nouveaujeu.tailleCarreaux;
 				}
 				
-			}
+			}*/zzzzzzzzzzz
 	
 	
 		
 	// 3e methode : avec l'utilisation d'un fichier texte et grace a la fonction loadMap
 	
 	
-			/*int colonne=0;
+			int colonne=0;
 			int ligne=0;
 			int x=0;
 			int y=0;
@@ -153,7 +153,7 @@ public class GestionDecor {
 					y+=nouveaujeu.tailleCarreaux;
 				}
 				
-			}*/		
+			}	
 			
 		}
 		
