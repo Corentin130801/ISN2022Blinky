@@ -89,7 +89,7 @@ public class GestionDecor {
 		// x et y coordonn�es  ;  tous les 48 car un carreau fait 48 de L et l
 		
 		// placer des murs autour, a titre d'exemple
-		for(int x=0;x<16;x++) {
+		/*for(int x=0;x<16;x++) {
 			for(int y=0;y<16;y++) {				
 				
 					g2.drawImage(decor[1].image,48*x , 0, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
@@ -98,7 +98,7 @@ public class GestionDecor {
 					g2.drawImage(decor[1].image,720 , 48*y, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);						
 			
 		}
-		}
+		}*/
 	
 		// placer du sable au centre de la carte
 		
@@ -129,7 +129,7 @@ public class GestionDecor {
 					y+=nouveaujeu.tailleCarreaux;
 				}
 				
-			}*/zzzzzzzzzzz
+			}*/
 	
 	
 		

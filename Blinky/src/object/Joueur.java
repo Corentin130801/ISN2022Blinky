@@ -101,9 +101,9 @@ public class Joueur extends Parentsobject {
 			case"bas":y+=speed;break;
 			case "droite":x+=speed;break;
 			case"gauche":x-=speed;break;
-			case "diagonal haut droite":x-=speed;y-=speed/2;break;
+			case "diagonal haut droite":x+=speed;y-=speed/2;break;
 			case"diagonal bas droite":x+=speed;y+=speed/2;break;
-			case "diagonal haut gauche":x+=speed;y-=speed/2;break;
+			case "diagonal haut gauche":x-=speed;y-=speed/2;break;
 			case"diagonal bas gauche":x-=speed;y+=speed/2;break;
 		}
 	}
