@@ -1,0 +1,22 @@
+Déplacement(x,y)
+Foctionnalité validée
+
+Vitesse:
+le joueur a effictivement une vitesse mais on ne peut selectionné sa vitesse
+fonctionnalité non validée par manque de clarté
+Class player et les Class Monstre 
+pas une fonctionnalité donc non validée
+
+Santé
+le joueur a une santé mais elle ne sert a rien car pas de monstre de plus celle ci n'est pas afficher 
+
+Attaques:
+Fonctionnalité non Validée
+
+Création de la carte
+Fonctionnalité validée
+Labyrinthe
+Fonctionnalité non validée
+
+Position de départ
+fonctionalité validée
