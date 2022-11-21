@@ -1,0 +1,7 @@
+Les fonctionnalites que l on veut mettre en place sont :
+- placer les objets/bonus sur la map
+- gerer la possibilite d une worldMap et donc de gerer les sorties de map
+- gerer l interaction avec les objets
+- possibilite de mettre des sons ou autre mais a voir si on a le temps
+- faire un ou plusieurs labyrinthe
+- faire des monstres / Santé / attaques
