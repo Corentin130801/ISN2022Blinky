@@ -1,5 +1,0 @@
-implémenté la fin du jeu
-faire un ou plusieurs labyrinthe
-faire des monstres
-Santé
-attaques
