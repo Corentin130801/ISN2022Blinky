@@ -11,10 +11,10 @@ public class VerifierCollision {
 	}
 	public void VerifierDecor(Parentsobject object) {
 		
-		int objectGaucheX = object.x + object.solidArea.x;
-		int objectDroiteX = object.x + object.solidArea.x + object.solidArea.width;
-		int objectHautY = object.y + object.solidArea.y;
-		int objectBasY = object.y + object.solidArea.y + object.solidArea.height;
+		int objectGaucheX = object.worldX + object.solidArea.x;
+		int objectDroiteX = object.worldX + object.solidArea.x + object.solidArea.width;
+		int objectHautY = object.worldY + object.solidArea.y;
+		int objectBasY = object.worldY + object.solidArea.y + object.solidArea.height;
 		
 		int objectColonneGauche =  objectGaucheX/nouveaujeu.tailleCarreaux;
 		int objectColonneDroite =  objectDroiteX/nouveaujeu.tailleCarreaux;

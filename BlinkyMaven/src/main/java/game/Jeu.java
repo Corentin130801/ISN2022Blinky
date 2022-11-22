@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
+//import bonus.SuperBonus;
 import decor.GestionDecor;
 import object.Joueur;
 
@@ -20,13 +21,21 @@ public class Jeu extends JPanel implements Runnable{
 	public final int ligneEcran=12;
 	public final int largeurEcran=tailleCarreaux*colonneEcran;
 	public final int hauteurEcran=tailleCarreaux*ligneEcran;
+
+	// Parametres de la map
+	public final int maxWorldColonne = 20;
+	public final int maxWorldLigne = 20;
+	public final int hauteurWorld = tailleCarreaux*maxWorldLigne;
+	public final int largeurWorld = tailleCarreaux*maxWorldColonne;
 	int FPS=60;
 	
 	GestionDecor gestionD = new GestionDecor(this);
 	Keyinput entrerClavier =new Keyinput();
 	Thread gameThread;
 	public VerifierCollision Verifier = new VerifierCollision(this);
-	Joueur joueur= new Joueur(this,entrerClavier);
+	//public Setter set = new Setter(this);
+	public Joueur joueur= new Joueur(this,entrerClavier);
+	//public SuperBonus bonus[] = new SuperBonus[10];
 
 	
 	public Jeu() {
@@ -37,6 +46,10 @@ public class Jeu extends JPanel implements Runnable{
 		this.setFocusable(true); //le Jeu pourra �tre focus pour recevoir KeyInput
 		
 	}
+
+	/*public void setUpGame(){
+		set.setObjects();
+	}*/
 	public void startGameThread() {
 		gameThread=new Thread(this);
 		gameThread.start();

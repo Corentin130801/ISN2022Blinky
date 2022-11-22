@@ -21,7 +21,7 @@ public class GestionDecor {
 		// determiner la taille du Decor[]
 		decor= new Decor[10];  // creation de 10 decors differents
 		
-		mapNbCarreaux = new int[nouveaujeu.colonneEcran][nouveaujeu.ligneEcran];
+		mapNbCarreaux = new int[nouveaujeu.maxWorldColonne][nouveaujeu.maxWorldLigne];
 		
 		getDecorImage();
 		loadMap();
@@ -48,18 +48,18 @@ public class GestionDecor {
 	
 	public void loadMap() {
 		try {
-			InputStream is = getClass().getResourceAsStream("/maps/map01.txt");
+			InputStream is = getClass().getResourceAsStream("/maps/worldMap.txt");
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
-		
+
 		
 			int colonne=0;
 			int ligne=0;
 			
-			while(colonne<nouveaujeu.colonneEcran && ligne< nouveaujeu.ligneEcran) {
+			while(colonne<nouveaujeu.maxWorldColonne && ligne< nouveaujeu.maxWorldLigne) {
 				
 				String line = br.readLine(); // lis les lignes et les mets dans le string line
 				
-				while(colonne<nouveaujeu.colonneEcran) {
+				while(colonne<nouveaujeu.maxWorldColonne) {
 					String numbers[] = line.split(" "); // supprime les espaces et split chaque numero
 					
 					int num = Integer.parseInt(numbers[colonne]); // on convertit les strings en nombre
@@ -136,24 +136,35 @@ public class GestionDecor {
 	// 3e methode : avec l'utilisation d'un fichier texte et grace a la fonction loadMap
 	
 	
-			int colonne=0;
-			int ligne=0;
-			int x=0;
-			int y=0;
+			int worldColonne=0;
+			int worldLigne=0;
+			//int x=0;
+			//int y=0;
 			
-			while(colonne < nouveaujeu.colonneEcran && ligne < nouveaujeu.ligneEcran) {
+			while(worldColonne < nouveaujeu.maxWorldColonne && worldLigne < nouveaujeu.ligneEcran) {
 				
-				int NbCarreaux = mapNbCarreaux[colonne][ligne];  // recuperer le numero de quel mati�re on veut notre carreau
+				int NbCarreaux = mapNbCarreaux[worldColonne][worldLigne];  // recuperer le numero de quel mati�re on veut notre carreau
+				int worldX = worldColonne*nouveaujeu.tailleCarreaux;
+				int worldY = worldLigne*nouveaujeu.tailleCarreaux;
+				int screenX = worldX - nouveaujeu.joueur.worldX +nouveaujeu.joueur.screenX; // l endroit ou sur l ecran on va dessiner
+				int screenY = worldY - nouveaujeu.joueur.worldY + nouveaujeu.joueur.screenY;
+
+				if(worldX +nouveaujeu.tailleCarreaux >nouveaujeu.joueur.worldX - nouveaujeu.joueur.screenX &&
+					worldX - nouveaujeu.tailleCarreaux < nouveaujeu.joueur.worldX + nouveaujeu.joueur.screenX &&
+					worldY + nouveaujeu.tailleCarreaux > nouveaujeu.joueur.worldY - nouveaujeu.joueur.screenY &&
+					worldY - nouveaujeu.tailleCarreaux < nouveaujeu.joueur.worldY + nouveaujeu.joueur.screenY){
+
+					g2.drawImage(decor[NbCarreaux].image,screenX,screenY,nouveaujeu.tailleCarreaux,nouveaujeu.tailleCarreaux,null);
+
+				}
+				worldColonne++;
+				//x+=nouveaujeu.tailleCarreaux;
 				
-				g2.drawImage(decor[NbCarreaux].image,x,y,nouveaujeu.tailleCarreaux,nouveaujeu.tailleCarreaux,null);
-				colonne++;
-				x+=nouveaujeu.tailleCarreaux;
-				
-				if(colonne==nouveaujeu.colonneEcran) {
-					colonne=0;
-					x=0;
-					ligne++;
-					y+=nouveaujeu.tailleCarreaux;
+				if(worldColonne==nouveaujeu.colonneEcran) {
+					worldColonne=0;
+					//x=0;
+					worldLigne++;
+					//y+=nouveaujeu.tailleCarreaux;
 				}
 				
 			}	

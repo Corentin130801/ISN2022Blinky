@@ -15,10 +15,15 @@ import game.Jeu;
 public class Joueur extends Parentsobject {
 	Jeu nouveaujeu;
 	Keyinput entrerClavier;
+
+	public final int screenX;
+	public final int screenY;
 	
 	public Joueur (Jeu nouveaujeu,Keyinput entrerClavier) {
 		this.nouveaujeu=nouveaujeu;
 		this.entrerClavier=entrerClavier;
+		screenX = nouveaujeu.largeurEcran/2 - (nouveaujeu.tailleCarreaux/2);
+		screenY = nouveaujeu.hauteurEcran/2 - (nouveaujeu.tailleCarreaux/2);
 		
 		solidArea= new Rectangle();
 		solidArea.x=8;
@@ -30,8 +35,8 @@ public class Joueur extends Parentsobject {
 		imageUpload();
 }
 	public void positionetvitessededepart(){
-		x=100;
-		y=100;
+		worldX=nouveaujeu.tailleCarreaux * 10;
+		worldY=nouveaujeu.tailleCarreaux*10;
 		speed=4;
 		direction="bas";}
 	public void imageUpload() {
@@ -91,20 +96,20 @@ public class Joueur extends Parentsobject {
 		// Verification des collision
 		
 		CollisionOn = false ;
-		nouveaujeu.Verifier.VerifierDecor(this); 
+		nouveaujeu.Verifier.VerifierDecor(this);
 		
 		// Si collision est fausse, il peut bouger
 		
 		if(CollisionOn== false) {
 			switch(direction) {
-			case"haut":y-=speed;break;
-			case"bas":y+=speed;break;
-			case "droite":x+=speed;break;
-			case"gauche":x-=speed;break;
-			case "diagonal haut droite":x+=speed;y-=speed/2;break;
-			case"diagonal bas droite":x+=speed;y+=speed/2;break;
-			case "diagonal haut gauche":x-=speed;y-=speed/2;break;
-			case"diagonal bas gauche":x-=speed;y+=speed/2;break;
+			case"haut":worldY-=speed;break;
+			case "droite":worldX+=speed;break;
+			case"gauche":worldX-=speed;break;
+				case"bas":worldY+=speed;break;
+			case "diagonal haut droite":worldX+=speed;worldY-=speed/2;break;
+			case"diagonal bas droite":worldX+=speed;worldY+=speed/2;break;
+			case "diagonal haut gauche":worldX-=speed;worldY-=speed/2;break;
+			case"diagonal bas gauche":worldX-=speed;worldY+=speed/2;break;
 		}
 	}
 		
@@ -138,9 +143,9 @@ public class Joueur extends Parentsobject {
 		g2.fillRect(x,y,nouveaujeu.tailleCarreaux/2 , nouveaujeu.tailleCarreaux/2);*/
 		
 		
-		BufferedImage image = toutedirection;
-	/*ici on peut mettre des images pour rendre les déplacements réaliste et dans ce cas il faut mettre null sur la ligne du sessus*/
-		/*switch(direction) {
+		BufferedImage image = null;
+	/*ici on peut mettre des images pour rendre les dï¿½placements rï¿½aliste et dans ce cas il faut mettre null sur la ligne du sessus*/
+		switch(direction) {
 		case"haut":
 			if(spriteNum==1) {
 				image=up1;
@@ -185,8 +190,8 @@ public class Joueur extends Parentsobject {
 		case"diagonale bas gauche":
 			image=down1;
 			break;
-		}*/
-		g2.drawImage(image,x,y, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
+		}
+		g2.drawImage(image,screenX,screenY, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
 		
 	}
 	}
