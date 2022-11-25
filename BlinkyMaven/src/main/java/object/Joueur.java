@@ -35,8 +35,8 @@ public class Joueur extends Parentsobject {
 		imageUpload();
 }
 	public void positionetvitessededepart(){
-		worldX=nouveaujeu.tailleCarreaux * 23;
-		worldY=nouveaujeu.tailleCarreaux * 22;
+		worldX=nouveaujeu.tailleCarreaux * 21;
+		worldY=nouveaujeu.tailleCarreaux * 23;
 		speed=4;
 		direction="bas";}
 	public void imageUpload() {
@@ -105,7 +105,7 @@ public class Joueur extends Parentsobject {
 			case"haut":worldY-=speed;break;
 			case "droite":worldX+=speed;break;
 			case"gauche":worldX-=speed;break;
-				case"bas":worldY+=speed;break;
+			case"bas":worldY+=speed;break;
 			case "diagonal haut droite":worldX+=speed;worldY-=speed/2;break;
 			case"diagonal bas droite":worldX+=speed;worldY+=speed/2;break;
 			case "diagonal haut gauche":worldX-=speed;worldY-=speed/2;break;

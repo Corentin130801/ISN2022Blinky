@@ -23,8 +23,8 @@ public class Jeu extends JPanel implements Runnable{
 	public final int hauteurEcran=tailleCarreaux*ligneEcran;
 
 	// Parametres de la map
-	public final int maxWorldColonne = 20;
-	public final int maxWorldLigne = 20;
+	public final int maxWorldColonne = 50;
+	public final int maxWorldLigne = 50;
 	public final int hauteurWorld = tailleCarreaux*maxWorldLigne;
 	public final int largeurWorld = tailleCarreaux*maxWorldColonne;
 	int FPS=60;

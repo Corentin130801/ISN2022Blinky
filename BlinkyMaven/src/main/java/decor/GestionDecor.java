@@ -48,7 +48,7 @@ public class GestionDecor {
 	
 	public void loadMap() {
 		try {
-			InputStream is = getClass().getResourceAsStream("/maps/worldMap.txt");
+			InputStream is = getClass().getResourceAsStream("/maps/worldMap01");
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
 		
@@ -70,7 +70,7 @@ public class GestionDecor {
 					
 				}
 				
-				if(colonne == nouveaujeu.colonneEcran) {
+				if(colonne == nouveaujeu.maxWorldColonne) {
 					colonne=0;
 					ligne++;
 				}
@@ -84,32 +84,7 @@ public class GestionDecor {
 	
 	
 	public void draw(Graphics2D g2) {
-		
-		// 1e methode mais ne fonctionne pas car le perso se teleporte
-		// x et y coordonn�es  ;  tous les 48 car un carreau fait 48 de L et l
-		
-		// placer des murs autour, a titre d'exemple
-		/*for(int x=0;x<16;x++) {
-			for(int y=0;y<16;y++) {				
-				
-					g2.drawImage(decor[1].image,48*x , 0, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
-					g2.drawImage(decor[1].image,0 , 48*y, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
-					g2.drawImage(decor[1].image,48*x , 528, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
-					g2.drawImage(decor[1].image,720 , 48*y, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);						
-			
-		}
-		}*/
-	
-		// placer du sable au centre de la carte
-		
-	/*	for(int x=48;x<=48*14;x++) {
-			for(int y=48;y<=10*48;y++) {
-				g2.drawImage(decor[0].image,x , y, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
-			}
-				
-			}			
-		*/
-	// 2e methode :  on recouvre tout le plateau de sable mais assez contraignant
+			// 2e methode :  on recouvre tout le plateau de sable mais assez contraignant
 	
 			/*int colonne=0;
 			int ligne=0;
@@ -138,10 +113,8 @@ public class GestionDecor {
 	
 			int worldColonne=0;
 			int worldLigne=0;
-			//int x=0;
-			//int y=0;
 			
-			while(worldColonne < nouveaujeu.maxWorldColonne && worldLigne < nouveaujeu.ligneEcran) {
+			while(worldColonne < nouveaujeu.maxWorldColonne && worldLigne < nouveaujeu.maxWorldLigne ) {
 				
 				int NbCarreaux = mapNbCarreaux[worldColonne][worldLigne];  // recuperer le numero de quel mati�re on veut notre carreau
 				int worldX = worldColonne*nouveaujeu.tailleCarreaux;
@@ -160,7 +133,7 @@ public class GestionDecor {
 				worldColonne++;
 				//x+=nouveaujeu.tailleCarreaux;
 				
-				if(worldColonne==nouveaujeu.colonneEcran) {
+				if(worldColonne==nouveaujeu.maxWorldColonne) {
 					worldColonne=0;
 					//x=0;
 					worldLigne++;
