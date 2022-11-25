@@ -35,8 +35,8 @@ public class Joueur extends Parentsobject {
 		imageUpload();
 }
 	public void positionetvitessededepart(){
-		worldX=nouveaujeu.tailleCarreaux * 10;
-		worldY=nouveaujeu.tailleCarreaux*10;
+		worldX=nouveaujeu.tailleCarreaux * 23;
+		worldY=nouveaujeu.tailleCarreaux * 22;
 		speed=4;
 		direction="bas";}
 	public void imageUpload() {
