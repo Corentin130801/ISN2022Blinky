@@ -25,6 +25,14 @@ public class GestionDecor {
 		
 		getDecorImage();
 		loadMap();
+		for (int i=0;i<mapNbCarreaux.length;i++){
+			for (int j=0;j<mapNbCarreaux[0].length;j++){
+				System.out.print(mapNbCarreaux[i][j] + " ");
+
+			}
+			System.out.println();
+		}
+
 	}
 	
 	public void getDecorImage() {  // meme facon qu'avec les differentes images du hero dans la classe joueur
@@ -48,7 +56,7 @@ public class GestionDecor {
 	
 	public void loadMap() {
 		try {
-			InputStream is = getClass().getResourceAsStream("/maps/worldMap01");
+			InputStream is = getClass().getResourceAsStream("/maps/worldMap.txt");
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
 		
@@ -58,10 +66,9 @@ public class GestionDecor {
 			while(colonne<nouveaujeu.maxWorldColonne && ligne< nouveaujeu.maxWorldLigne) {
 				
 				String line = br.readLine(); // lis les lignes et les mets dans le string line
-				
+				String numbers[] = line.split(" ");  // supprime les espaces et split chaque numero
 				while(colonne<nouveaujeu.maxWorldColonne) {
-					String numbers[] = line.split(" "); // supprime les espaces et split chaque numero
-					
+
 					int num = Integer.parseInt(numbers[colonne]); // on convertit les strings en nombre
 					
 					mapNbCarreaux[colonne][ligne] = num;
