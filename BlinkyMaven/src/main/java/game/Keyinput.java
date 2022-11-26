@@ -2,7 +2,7 @@ package game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 public class Keyinput implements KeyListener{
-	/*ici la touche z permet d'aller en haut ,s en bas,d à droite,q à gauche*/
+	/*ici la touche z permet d'aller en haut ,s en bas,d ï¿½ droite,q ï¿½ gauche*/
 	public boolean toucheZ,toucheS,toucheQ,toucheD;
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -12,7 +12,7 @@ public class Keyinput implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		int  code =e.getKeyCode(); // retourne le keyCode associé à la touche pressee	 
+		int  code =e.getKeyCode(); // retourne le keyCode associï¿½ ï¿½ la touche pressee	 
 		if(code==KeyEvent.VK_Z) {
 			toucheZ=true;
 		}

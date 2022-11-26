@@ -2,7 +2,6 @@ package object;
 
 import game.Keyinput;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -42,14 +41,22 @@ public class Joueur extends Parentsobject {
 	public void imageUpload() {
 		try {
 			/*les object sont dans la classe parent*/
-			up1=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_up_1.png"));
-			up2=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_up_2.png"));
-			down1=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_down_1.1.png"));
-			down2=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_down_2.1.png"));
-			left1=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_left_1.1.png"));
-			left2=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_left_2.1.png"));
-			right1=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_right_1.1.png"));
-			right2=ImageIO.read(getClass().getResourceAsStream("/joueur/boy_right_2.png"));
+			up1=ImageIO.read(getClass().getResourceAsStream("/joueur2/Haut1.png"));
+			up2=ImageIO.read(getClass().getResourceAsStream("/joueur2/Haut2.png"));
+			down1=ImageIO.read(getClass().getResourceAsStream("/joueur2/Bas1.png"));
+			down2=ImageIO.read(getClass().getResourceAsStream("/joueur2/Bas2.png"));
+			left1=ImageIO.read(getClass().getResourceAsStream("/joueur2/Gauche1.png"));
+			left2=ImageIO.read(getClass().getResourceAsStream("/joueur2/Gauche2.png"));
+			right1=ImageIO.read(getClass().getResourceAsStream("/joueur2/Droite1.png"));
+			right2=ImageIO.read(getClass().getResourceAsStream("/joueur2/Droite2.png"));
+			DiagBasDroite1=ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalbasdroite1.png"));
+			DiagBasDroite2=ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalbasdroite2.png"));
+			DiagBasGauche1=ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalbasgauche1.png"));
+			DiagBasGauche2 = ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalbasgauche1.png"));
+			DiagHautDroite1=ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalhautdroite1.png"));
+			DiagHautDroite2=ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalhautdroite2.png"));
+			DiagHautGauche1=ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalhautgauche1.png"));
+			DiagHautGauche2=ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalhautgauche2.png"));
 			toutedirection=ImageIO.read(getClass().getResourceAsStream("/joueur/joueur3.png"));
 		}catch(IOException e) {
 			e.printStackTrace();
@@ -179,16 +186,40 @@ public class Joueur extends Parentsobject {
 			}
 			break;
 		case"diagonale haut droite":
-			image=up1;
+			if(spriteNum==1) {
+				image=DiagHautDroite1;
+			}
+			if(spriteNum==2) {
+				image=DiagHautDroite2;
+			}
+
 			break;
 		case"diagonale haut gauche":
-			image=up2;
+			if(spriteNum==1) {
+				image=DiagHautGauche1;
+			}
+			if(spriteNum==2) {
+				image=DiagHautGauche2;
+			}
+
 			break;
 		case"diagonale bas droite":
-			image=down2;
+			if(spriteNum==1) {
+				image=DiagBasDroite1;
+			}
+			if(spriteNum==2) {
+				image=DiagBasDroite2;
+			}
+
 			break;
 		case"diagonale bas gauche":
-			image=down1;
+			if(spriteNum==1) {
+				image=DiagBasGauche1;
+			}
+			if(spriteNum==2) {
+				image=DiagBasGauche2;
+			}
+
 			break;
 		}
 		g2.drawImage(image,screenX,screenY, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);

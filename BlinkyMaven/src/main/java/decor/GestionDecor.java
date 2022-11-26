@@ -25,13 +25,13 @@ public class GestionDecor {
 		
 		getDecorImage();
 		loadMap();
-		for (int i=0;i<mapNbCarreaux.length;i++){
+		/*for (int i=0;i<mapNbCarreaux.length;i++){
 			for (int j=0;j<mapNbCarreaux[0].length;j++){
 				System.out.print(mapNbCarreaux[i][j] + " ");
 
 			}
 			System.out.println();
-		}
+		}*/
 
 	}
 	

@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 import decor.GestionDecor;
 import object.Joueur;
 
-import object.Joueur;
 @SuppressWarnings("serial")
 public class Jeu extends JPanel implements Runnable{
 	/*ici ce trouve toutes les variables qui param�trise la fen�tre de jeu*/
