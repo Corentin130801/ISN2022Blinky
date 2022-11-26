@@ -19,7 +19,7 @@ public class Main {
 		window.pack();
 		window.setLocationRelativeTo(null); // pas de location sp�cifi�e, windows la placera au centre
 		window.setVisible(true);
-		//jeu.setUpGame();
+		jeu.setUpGame();
 
 
 

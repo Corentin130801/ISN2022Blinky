@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 //import bonus.SuperBonus;
+import bonus.SuperBonus;
 import decor.GestionDecor;
 import object.Joueur;
 
@@ -32,9 +33,9 @@ public class Jeu extends JPanel implements Runnable{
 	Keyinput entrerClavier =new Keyinput();
 	Thread gameThread;
 	public VerifierCollision Verifier = new VerifierCollision(this);
-	//public Setter set = new Setter(this);
+	public Setter set = new Setter(this);
 	public Joueur joueur= new Joueur(this,entrerClavier);
-	//public SuperBonus bonus[] = new SuperBonus[10];
+	public SuperBonus obj[] = new SuperBonus[10];
 
 	
 	public Jeu() {
@@ -46,9 +47,9 @@ public class Jeu extends JPanel implements Runnable{
 		
 	}
 
-	/*public void setUpGame(){
+	public void setUpGame(){
 		set.setObjects();
-	}*/
+	}
 	public void startGameThread() {
 		gameThread=new Thread(this);
 		gameThread.start();
@@ -107,8 +108,17 @@ public class Jeu extends JPanel implements Runnable{
 		public void paintComponent(Graphics g) {  // une methode pour dessiner des choses qui appartient � JPanel, Grapihcs est une classe pour dessiner des objets
 			super.paintComponent(g); //une formalite de paintComponent
 			Graphics2D g2=(Graphics2D)g;
-			
+
+			// Dessin du décor
 			gestionD.draw(g2);  // on dessine le decor avant le joueur pour pas que le joueur soit cache
+
+			// Dessin des bonus
+
+			for (int i =0; i<obj.length; i++){
+				if(obj[i] != null){
+					obj[i].draw(g2,this);
+				}
+			}
 			
 			joueur.draw(g2);
 			
