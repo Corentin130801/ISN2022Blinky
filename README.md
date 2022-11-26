@@ -10,4 +10,4 @@ Vous avez ensuite juste à écrire la requête suivante dans le cmd : `mvn clean
 
 Le chemin pour aller dans notre Sprint2 est : 
 
-BlinkyMaven\src\main\Resources\Dossiers\FichiersSprint
+BlinkyMaven\src\main\Resources\Dossier\FichiersSprint
