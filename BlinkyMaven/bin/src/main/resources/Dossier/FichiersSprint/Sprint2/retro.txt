@@ -1,0 +1,4 @@
+Nous sommes  satisfaits de ce sprint.Cependant le bilan est mitigé.Le problème provient de notre premier backlog celui-ci à était fait sans aucune connaissance de realisation de projet ce qui explique un diagramme de classe hasardeux mais aussi des fonctionnalité peu précise qui ne sont pas validé a la fin du sprint 1.
+Toutefois,
+beaucoup de fonctionnalité ont déjà été implémentées,il nous suffit désormé de bien fixer nos objectifs pour le prochain sprint et de s'adapter aux exigence  de la conception de logiciel!
+Enfin il nous faut enlever tout les accents du code et reussir a faire un executable et ensuite transmettre les instructions pour la compilation dans le fichier readme.
