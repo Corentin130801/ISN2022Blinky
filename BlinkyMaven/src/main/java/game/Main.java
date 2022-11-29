@@ -1,10 +1,10 @@
 package game;
 
-import javax.swing.JFrame; // Cela ajoute une fen�tre avec une bordure et une barre de titre 
+import javax.swing.JFrame; // Cela ajoute une fenetre avec une bordure et une barre de titre
 
 public class Main {
 	
-	public static Scene scene; //
+
 	
 	public static void main(String[] args) {
 		
