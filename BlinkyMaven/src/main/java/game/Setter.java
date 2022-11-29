@@ -1,5 +1,6 @@
 package game;
 
+import bonus.ObjDrapeau;
 import bonus.ObjEclair;
 import bonus.ObjFlower;
 import bonus.ObjStar;
@@ -35,6 +36,10 @@ public class Setter {
         nouveaujeu.obj[5] = new ObjEclair();
         nouveaujeu.obj[5].worldX = 23*nouveaujeu.tailleCarreaux;
         nouveaujeu.obj[5].worldY = 12*nouveaujeu.tailleCarreaux;
+
+        nouveaujeu.obj[6] = new ObjDrapeau();
+        nouveaujeu.obj[6].worldX = 45*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[6].worldY = 45*nouveaujeu.tailleCarreaux;
 
 
     }
