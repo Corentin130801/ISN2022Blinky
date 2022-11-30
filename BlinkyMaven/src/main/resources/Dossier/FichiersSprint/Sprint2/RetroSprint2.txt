@@ -1,0 +1,5 @@
+## Retro Sprint 2
+
+Nous sommes, dans l'ensemble, satisfait de ce Sprint 2. Notre principal defaut est la tache de travail que l'on prevoit en avance. Il faut que l'on diminue les fonctionnalites que l'on veut ajouter. De plus, nous sommes contents du rendu de notre jeu et de l'avance sur l'ensemble.
+Il reste tout de meme des fonctionnalites que l'on n'a pas pu faire, mais toutes les fonctionnalites ont ete traitees.
+Ainsi, le travail qu'il nous reste concerne l'amelioration des fonctionnalites dont on a parle dans le BackLog du Sprint 2 et rajouter des fonctionnalites.

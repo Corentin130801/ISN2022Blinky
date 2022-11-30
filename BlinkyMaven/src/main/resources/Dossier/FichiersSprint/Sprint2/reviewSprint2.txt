@@ -1,0 +1,22 @@
+##Review Sprint 2
+
+Dans l'ensemble, le bilan du Sprint 2 est concluant. 
+
+placer objets/bonus sur la map :
+- fonctionnalite validee
+
+worldMap et camera centree sur le perso et gerer les sorties de map : 
+- fonctionnalite validee
+
+possibilite de mettre des sons/musique :
+- fonctionnalite validee
+
+faire un ou plusieurs labyrinthes :
+- un seul a été fait mais possibilite d en faire d autres, donc ne fonctionne pas
+
+gerer l interaction avec les objets :
+- fonctionnalite non faite ; mais les hitbox ne sont pas optimales ce qui rend difficile l interaction avec les objets
+
+faire des monstres/sante/attaques:
+- les fonctionnalites sante/attaques : non faites
+ -monstres :  ils ont ete faits mais leur deplacement doit cependant etre ameliore

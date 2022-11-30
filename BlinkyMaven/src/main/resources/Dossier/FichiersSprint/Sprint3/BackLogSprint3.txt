@@ -1,0 +1,9 @@
+## BackLog 3
+
+Fonctionnalites à faire :
+
+- Interaction avec n'importe quel bonus/objet : l'objet disparait une fois utilise sauf pour le drapeau de fin. L'interaction d'objet n'est pas infinie et se stop.
+- Monstres :  attaques corps à corps / déplacement réaliste et qu'ils peuvent nous toucher
+- Héro : santé (possibilite de mourir) et l'afficher aussi
+- creer plusieurs labyrinthes
+- implementer la fin du jeu en affichant  par ex : "You won" ou "Game Over"
