@@ -13,7 +13,8 @@ public class ObjStar extends SuperBonus{
         }catch(IOException e){
             e.printStackTrace();
         }
-
+       
+        collision=true;
     }
 }
 

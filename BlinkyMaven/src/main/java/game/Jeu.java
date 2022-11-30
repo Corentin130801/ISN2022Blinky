@@ -12,6 +12,7 @@ import decor.GestionDecor;
 import object.Joueur;
 import object.Monster;
 
+
 @SuppressWarnings("serial")
 public class Jeu extends JPanel implements Runnable{
 	/*ici ce trouve toutes les variables qui param�trise la fen�tre de jeu*/
@@ -32,15 +33,18 @@ public class Jeu extends JPanel implements Runnable{
 	
 	GestionDecor gestionD = new GestionDecor(this);
 	Keyinput entrerClavier =new Keyinput();
+	Sound sound=new Sound();
 	Thread gameThread;
 	public VerifierCollision Verifier = new VerifierCollision(this);
 	public Setter set = new Setter(this);
+	
 	public Joueur joueur= new Joueur(this,entrerClavier);
 	public SuperBonus obj[] = new SuperBonus[10];
 	public Monster monstre=new Monster(this,150,300);
 	public Monster monstre2=new Monster(this,150,400);
 	public Monster monstre3=new Monster(this,150,500);
 	public Monster monstre4=new Monster(this,250,500);
+	
 
 	
 	public Jeu() {
@@ -54,6 +58,7 @@ public class Jeu extends JPanel implements Runnable{
 
 	public void setUpGame(){
 		set.setObjects();
+		playMusic(0);
 	}
 	public void startGameThread() {
 		gameThread=new Thread(this);
@@ -98,6 +103,7 @@ public class Jeu extends JPanel implements Runnable{
 			monstre2.update();
 			monstre3.update();
 			monstre4.update();
+			
 			/*if(entrerClavier.toucheZ==true) {
 				playerY-=playerSpeed;
 				
@@ -127,15 +133,32 @@ public class Jeu extends JPanel implements Runnable{
 					obj[i].draw(g2,this);
 				}
 			}
+			/*if(obj[obj.length]!=null) {
+				g2.drawImage(obj[obj.length].image,10,10, tailleCarreaux*2, tailleCarreaux*2, null);
+			}*/
+			//g2.drawImage(image,screenX,screenY, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null)
 			
 			joueur.draw(g2);
 			monstre.draw(g2);
 			monstre2.draw(g2);
 			monstre3.draw(g2);
 			monstre4.draw(g2);
+			
 			/*g2.setColor(Color.white);
 			g2.fillRect(playerX,playerY,tailleCarreaux/2 , tailleCarreaux/2);*/
 			g2.dispose();
+		}
+		public void playMusic(int i ) {
+			sound.setFile(i);
+			sound.play();
+			sound.loop();
+		}
+		public void stopMusic() {
+			sound.stop();
+		}
+		public void playSE(int i){
+			sound.setFile(i);
+			sound.play();
 		}
 	}
 

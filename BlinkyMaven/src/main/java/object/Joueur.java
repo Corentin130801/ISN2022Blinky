@@ -27,8 +27,11 @@ public class Joueur extends Parentsobject {
 		solidArea= new Rectangle();
 		solidArea.x=8;
 		solidArea.y=16;
+		solidAreaDefaultX=solidArea.x;
+		solidAreaDefaultY=solidArea.y;
 		solidArea.width=32;
-		solidArea.height=32;
+		solidArea.height=28;
+		
 		
 		positionetvitessededepart();
 		imageUpload();
@@ -58,6 +61,7 @@ public class Joueur extends Parentsobject {
 			DiagHautGauche1=ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalhautgauche1.png"));
 			DiagHautGauche2=ImageIO.read(getClass().getResourceAsStream("/joueur2/diagonalhautgauche2.png"));
 			toutedirection=ImageIO.read(getClass().getResourceAsStream("/joueur/joueur3.png"));
+			gameover=ImageIO.read(getClass().getResourceAsStream("/joueur/th.png"));
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
@@ -105,7 +109,11 @@ public class Joueur extends Parentsobject {
 		CollisionOn = false ;
 		nouveaujeu.Verifier.VerifierDecor(this);
 		
+		int obj=nouveaujeu.Verifier.VerifierBonus2(this);
+		
+		
 		// Si collision est fausse, il peut bouger
+		//int obj=nouveaujeu.Verifier.VerifierBonus(this,true);
 		
 		if(CollisionOn== false) {
 			switch(direction) {
@@ -151,6 +159,7 @@ public class Joueur extends Parentsobject {
 		
 		
 		BufferedImage image = null;
+		
 	/*ici on peut mettre des images pour rendre les d�placements r�aliste et dans ce cas il faut mettre null sur la ligne du sessus*/
 		switch(direction) {
 		case"haut":
@@ -222,7 +231,9 @@ public class Joueur extends Parentsobject {
 
 			break;
 		}
-		g2.drawImage(image,screenX,screenY, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);
+		
+		
+		g2.drawImage(image,screenX,screenY, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);}
 		
 	}
-	}
+	

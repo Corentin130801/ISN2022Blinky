@@ -10,7 +10,12 @@ public class SuperBonus {
     public String name;
     public boolean collision = false;
     public int worldX, worldY;
-
+    public Rectangle solidArea= new Rectangle(0,0,12,12); 
+    public int solidAreaDefaultX=0;
+    public int solidAreaDefaultY=0;
+    public String direction;
+    public int speed;
+	
     public void draw(Graphics2D g2, Jeu nouveaujeu){
         int screenX = worldX - nouveaujeu.joueur.worldX +nouveaujeu.joueur.screenX; // l endroit ou sur l ecran on va dessiner
         int screenY = worldY - nouveaujeu.joueur.worldY + nouveaujeu.joueur.screenY;

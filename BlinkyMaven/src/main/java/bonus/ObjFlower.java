@@ -13,6 +13,7 @@ public class ObjFlower extends SuperBonus {
         }catch(IOException e){
             e.printStackTrace();
         }
-
+        
+        collision=true;
     }
 }

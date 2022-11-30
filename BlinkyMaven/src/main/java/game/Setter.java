@@ -4,6 +4,7 @@ import bonus.ObjDrapeau;
 import bonus.ObjEclair;
 import bonus.ObjFlower;
 import bonus.ObjStar;
+import bonus.ObjTuto;
 
 public class Setter {
     Jeu nouveaujeu;
@@ -12,8 +13,8 @@ public class Setter {
         this.nouveaujeu = nouveaujeu;
     }
 
-    public void setObjects(){
-        nouveaujeu.obj[0] = new ObjFlower();
+    public  void setObjects(){
+      /*  nouveaujeu.obj[0] = new ObjFlower();
         nouveaujeu.obj[0].worldX = 23*nouveaujeu.tailleCarreaux;
         nouveaujeu.obj[0].worldY = 7*nouveaujeu.tailleCarreaux;
 
@@ -31,15 +32,27 @@ public class Setter {
 
         nouveaujeu.obj[4] = new ObjEclair();
         nouveaujeu.obj[4].worldX = 23*nouveaujeu.tailleCarreaux;
-        nouveaujeu.obj[4].worldY = 11*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[4].worldY = 11*nouveaujeu.tailleCarreaux;*/
 
-        nouveaujeu.obj[5] = new ObjEclair();
-        nouveaujeu.obj[5].worldX = 23*nouveaujeu.tailleCarreaux;
-        nouveaujeu.obj[5].worldY = 12*nouveaujeu.tailleCarreaux;
-
-        nouveaujeu.obj[6] = new ObjDrapeau();
-        nouveaujeu.obj[6].worldX = 45*nouveaujeu.tailleCarreaux;
-        nouveaujeu.obj[6].worldY = 45*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[0] = new ObjEclair();
+        nouveaujeu.obj[0].worldX = 23*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[0].worldY = 8*nouveaujeu.tailleCarreaux;
+        
+        nouveaujeu.obj[1] = new ObjEclair();
+        nouveaujeu.obj[1].worldX = 30*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[1].worldY = 16*nouveaujeu.tailleCarreaux;
+        
+        nouveaujeu.obj[2] = new ObjEclair();
+        nouveaujeu.obj[2].worldX = 23*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[2].worldY = 30*nouveaujeu.tailleCarreaux;
+        
+        nouveaujeu.obj[3] = new ObjDrapeau();
+        nouveaujeu.obj[3].worldX = 45*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[3].worldY = 45*nouveaujeu.tailleCarreaux;
+        
+       /* nouveaujeu.obj[4] = new ObjTuto();
+        nouveaujeu.obj[4].worldX = 18*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[4].worldY = 10*nouveaujeu.tailleCarreaux;*/
 
 
     }
