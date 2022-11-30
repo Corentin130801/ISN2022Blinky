@@ -1,0 +1,18 @@
+Repartition des taches :
+
+Corentin : 
+- interaction avec tous les objets/bonus
+
+Ewan : 
+- interaction fenetre
+
+
+Leo :
+- deplacement des monstres
+
+
+
+- creer differents labyrinthes 
+- sante /mort
+
+
