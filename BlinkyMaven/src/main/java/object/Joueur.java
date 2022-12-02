@@ -109,11 +109,12 @@ public class Joueur extends Parentsobject {
 		CollisionOn = false ;
 		nouveaujeu.Verifier.VerifierDecor(this);
 		
-		int obj=nouveaujeu.Verifier.VerifierBonus2(this);
+
+		//int obj=nouveaujeu.Verifier.VerifierBonus2(this);
 		
 		
 		// Si collision est fausse, il peut bouger
-		//int obj=nouveaujeu.Verifier.VerifierBonus(this,true);
+		int obj=nouveaujeu.Verifier.VerifierBonus(this,true);
 		
 		if(CollisionOn== false) {
 			switch(direction) {

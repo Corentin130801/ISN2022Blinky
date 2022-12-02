@@ -129,12 +129,11 @@ public int VerifierBonus(Parentsobject object,boolean player) {
 					object.solidArea.x-=object.speed;
 					break;
 				}
+				object.solidArea.x=object.solidAreaDefaultX;
+				object.solidArea.y=object.solidAreaDefaultY;
+				nouveaujeu.obj[i].solidArea.x=nouveaujeu.obj[i].solidAreaDefaultX;
+				nouveaujeu.obj[i].solidArea.y=nouveaujeu.obj[i].solidAreaDefaultY;
 			}
-			object.solidArea.x=object.solidAreaDefaultX;
-			object.solidArea.y=object.solidAreaDefaultY;
-			nouveaujeu.obj[i].solidArea.x=nouveaujeu.obj[i].solidAreaDefaultX;
-			nouveaujeu.obj[i].solidArea.y=nouveaujeu.obj[i].solidAreaDefaultY;
-			
 			
 		}
 		return index;
