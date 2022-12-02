@@ -17,7 +17,8 @@ public class Joueur extends Parentsobject {
 
 	public final int screenX;
 	public final int screenY;
-	
+
+	int ashEclair =0;
 	public Joueur (Jeu nouveaujeu,Keyinput entrerClavier) {
 		this.nouveaujeu=nouveaujeu;
 		this.entrerClavier=entrerClavier;
@@ -115,6 +116,7 @@ public class Joueur extends Parentsobject {
 		
 		// Si collision est fausse, il peut bouger
 		int obj=nouveaujeu.Verifier.VerifierBonus(this,true);
+		TakeObject(obj);
 		
 		if(CollisionOn== false) {
 			switch(direction) {
@@ -144,6 +146,26 @@ public class Joueur extends Parentsobject {
 				spriteCounter=0; // on le reinitialise
 			}
 		}
+	}
+
+
+	public void TakeObject(int i){
+		if(i!=999){    // n importe quel nombre est bon tant qu il est plus grand que l array des objets
+				String objectName = nouveaujeu.obj[i].name;
+				switch(objectName){
+					case "eclair":
+						speed=10;
+						nouveaujeu.obj[i] = null;
+						break;
+					case "fleur":
+						break;
+					case "etoile":
+						break;
+					case "drapeau":
+						speed=0;
+				}
+		}
+
 	}
 /*On peut rajouter si l'on veut l'option que le perso ne bouge pas quand on appuie sur aucune touche en remettant toute la partie d'avant
  * dans un autre if si on touche aucune touche */	

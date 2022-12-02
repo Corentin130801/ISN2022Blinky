@@ -111,21 +111,45 @@ public int VerifierBonus(Parentsobject object,boolean player) {
 				case "haut":
 					object.solidArea.y-=object.speed;
 					if(object.solidArea.intersects(nouveaujeu.obj[i].solidArea)) {
-					System.out.println("yes");				}
+						if(nouveaujeu.obj[i].collision == true){
+							object.CollisionOn = true;
+						}
+						if(player == true){
+							index = i;
+						}
+					}
 					break;
 				case "bas":
 					if(object.solidArea.intersects(nouveaujeu.obj[i].solidArea)) {
-						System.out.println("yes");				}
+						if(nouveaujeu.obj[i].collision == true){
+							object.CollisionOn = true;
+						}
+						if(player == true){
+							index = i;
+						}
+					}
 					object.solidArea.y+=object.speed;
 					break;
 				case "droite":
 					if(object.solidArea.intersects(nouveaujeu.obj[i].solidArea)) {
-						System.out.println("yes");				}
+						if(nouveaujeu.obj[i].collision == true){
+							object.CollisionOn = true;
+						}
+						if(player == true){
+							index = i;
+						}
+					}
 					object.solidArea.x+=object.speed;
 					break;
 				case "gauche":
 					if(object.solidArea.intersects(nouveaujeu.obj[i].solidArea)) {
-						System.out.println("yes");				}
+						if(nouveaujeu.obj[i].collision == true){
+							object.CollisionOn = true;
+						}
+						if(player == true){
+							index = i;
+						}
+					}
 					object.solidArea.x-=object.speed;
 					break;
 				}

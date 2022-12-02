@@ -6,7 +6,7 @@ import java.io.IOException;
 public class ObjEclair extends SuperBonus {
 
     public ObjEclair(){
-        name = "fleur";
+        name = "eclair";
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/bonusPixel/eclair.png"));
 
