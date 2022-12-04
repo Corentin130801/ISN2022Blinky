@@ -183,7 +183,112 @@ public int VerifierBonus2(Joueur joueur) {
 	return index;
 
 
-}}
+}
+
+public int VerifierParentsObject(Parentsobject object, Parentsobject[] target) {
+
+	int index=999;
+	
+	for(int i=0;i<target.length;i++) {
+		if(target[i]!=null) {
+			object.solidArea.x=object.worldX+ object.solidArea.x;
+			object.solidArea.y=object.worldY+ object.solidArea.y;
+			//________________
+			target[i].solidArea.x=target[i].worldX + target[i].solidArea.x;
+			target[i].solidArea.y=target[i].worldY + target[i].solidArea.y;
+			switch(object.direction) {
+			case "haut":
+				object.solidArea.y-=object.speed;
+				if(object.solidArea.intersects(target[i].solidArea)) {
+					
+						object.CollisionOn = true;
+					index = i;
+					
+				}
+				break;
+			case "bas":
+				if(object.solidArea.intersects(target[i].solidArea)) {
+					
+						object.CollisionOn = true;
+						index = i;
+					
+				}
+				object.solidArea.y+=object.speed;
+				break;
+			case "droite":
+				if(object.solidArea.intersects(target[i].solidArea)) {
+					object.CollisionOn = true;
+					index = i;
+					
+				}
+				object.solidArea.x+=object.speed;
+				break;
+			case "gauche":
+				if(object.solidArea.intersects(target[i].solidArea)) {
+					object.CollisionOn = true;
+					index = i;
+					
+				}
+				object.solidArea.x-=object.speed;
+				break;
+			}
+			object.solidArea.x=object.solidAreaDefaultX;
+			object.solidArea.y=object.solidAreaDefaultY;
+			target[i].solidArea.x=target[i].solidAreaDefaultX;
+			target[i].solidArea.y=target[i].solidAreaDefaultY;
+		}
+		
+	}
+	return index;
+	
+
+}
+
+public void checkPlayer(Parentsobject object) {
+	object.solidArea.x=object.worldX+ object.solidArea.x;
+	object.solidArea.y=object.worldY+ object.solidArea.y;
+	//________________
+	nouveaujeu.joueur.solidArea.x=nouveaujeu.joueur.worldX + nouveaujeu.joueur.solidArea.x;
+	nouveaujeu.joueur.solidArea.y=nouveaujeu.joueur.worldY + nouveaujeu.joueur.solidArea.y;
+	switch(object.direction) {
+	case "haut":
+		object.solidArea.y-=object.speed;
+		if(object.solidArea.intersects(nouveaujeu.joueur.solidArea)) {
+			
+				object.CollisionOn = true;
+			
+		}
+		break;
+	case "bas":
+		if(object.solidArea.intersects(nouveaujeu.joueur.solidArea)) {
+			
+				object.CollisionOn = true;
+			
+		}
+		object.solidArea.y+=object.speed;
+		break;
+	case "droite":
+		if(object.solidArea.intersects(nouveaujeu.joueur.solidArea)) {
+			object.CollisionOn = true;
+			
+		}
+		object.solidArea.x+=object.speed;
+		break;
+	case "gauche":
+		if(object.solidArea.intersects(nouveaujeu.joueur.solidArea)) {
+			object.CollisionOn = true;
+			
+		}
+		object.solidArea.x-=object.speed;
+		break;
+	}
+	object.solidArea.x=object.solidAreaDefaultX;
+	object.solidArea.y=object.solidAreaDefaultY;
+	nouveaujeu.joueur.solidArea.x=nouveaujeu.joueur.solidAreaDefaultX;
+	nouveaujeu.joueur.solidArea.y=nouveaujeu.joueur.solidAreaDefaultY;
+
+}
+}
 			
 	
 

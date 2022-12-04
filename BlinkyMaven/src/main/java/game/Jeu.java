@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,7 +11,8 @@ import javax.swing.JPanel;
 import bonus.SuperBonus;
 import decor.GestionDecor;
 import object.Joueur;
-import object.Monster;
+
+import object.Parentsobject;
 
 
 @SuppressWarnings("serial")
@@ -38,12 +40,13 @@ public class Jeu extends JPanel implements Runnable{
 	public VerifierCollision Verifier = new VerifierCollision(this);
 	public Setter set = new Setter(this);
 	
+	
+	
+	// Parentsobject et Object
 	public Joueur joueur= new Joueur(this,entrerClavier);
 	public SuperBonus obj[] = new SuperBonus[10];
-	public Monster monstre=new Monster(this,150,300);
-	public Monster monstre2=new Monster(this,150,400);
-	public Monster monstre3=new Monster(this,150,500);
-	public Monster monstre4=new Monster(this,250,500);
+	public Parentsobject monstre[]= new Parentsobject[10];
+	public Parentsobject Fmonstre[]= new Parentsobject[10];
 	
 
 	
@@ -58,6 +61,7 @@ public class Jeu extends JPanel implements Runnable{
 
 	public void setUpGame(){
 		set.setObjects();
+		set.setMonstre();
 		playMusic(0);
 	}
 	public void startGameThread() {
@@ -98,11 +102,24 @@ public class Jeu extends JPanel implements Runnable{
 		}}
 		public void update() {
 			
+			//Joueur 
 			joueur.update();
-			monstre.update();
-			monstre2.update();
-			monstre3.update();
-			monstre4.update();
+			
+			//Monstre
+			
+			for (int i =0; i<monstre.length; i++){
+				if(monstre[i] != null){
+					monstre[i].updateAvecCollision();
+				}
+			}
+			//Fantome
+			
+			for (int i =0; i<Fmonstre.length; i++){
+				if(Fmonstre[i] != null){
+					Fmonstre[i].updateSansCollision();
+				}
+			}
+		
 			
 			/*if(entrerClavier.toucheZ==true) {
 				playerY-=playerSpeed;
@@ -133,16 +150,24 @@ public class Jeu extends JPanel implements Runnable{
 					obj[i].draw(g2,this);
 				}
 			}
-			/*if(obj[obj.length]!=null) {
-				g2.drawImage(obj[obj.length].image,10,10, tailleCarreaux*2, tailleCarreaux*2, null);
-			}*/
-			//g2.drawImage(image,screenX,screenY, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null)
+			
+			//Monstre
+			
+			for (int i =0; i<monstre.length; i++){
+				if(monstre[i] != null){
+					monstre[i].draw(g2);
+				}
+			}
+			//Fantome
+			
+			for (int i =0; i<Fmonstre.length; i++){
+				if(Fmonstre[i] != null){
+					Fmonstre[i].draw(g2);
+				}
+			}
 			
 			joueur.draw(g2);
-			monstre.draw(g2);
-			monstre2.draw(g2);
-			monstre3.draw(g2);
-			monstre4.draw(g2);
+			
 			
 			/*g2.setColor(Color.white);
 			g2.fillRect(playerX,playerY,tailleCarreaux/2 , tailleCarreaux/2);*/

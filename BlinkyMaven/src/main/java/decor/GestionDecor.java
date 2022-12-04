@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 
 import game.Jeu;
+import game.OutilUtile;
 
 public class GestionDecor {
 	
@@ -37,7 +38,14 @@ public class GestionDecor {
 	
 	public void getDecorImage() {  // meme facon qu'avec les differentes images du hero dans la classe joueur
 		
-		try {
+		
+		
+		setup(0,"sable",false);
+		setup(1,"mur",true);
+		
+		
+		
+		/*try {
 			
 			decor[0] = new Decor();
 			decor[0].image = ImageIO.read(getClass().getResourceAsStream("/decors/sable.png"));
@@ -50,9 +58,26 @@ public class GestionDecor {
 		}catch(IOException e){
 			e.printStackTrace();   // pour trouver les exceptions
 			
-		}
+		}*/
 		
 	}
+	
+	
+	
+	public void setup (int index, String ImagePath, boolean collision) {
+		OutilUtile uOutil = new OutilUtile(); 
+		try {
+			decor [index]= new Decor();
+			decor[index].image = ImageIO.read(getClass().getResourceAsStream("/decors/"+ImagePath+".png"));
+			decor[index].image= uOutil.scaleImage(decor[index].image, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux);
+			decor[index].collision= collision; 
+			
+			
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public void loadMap() {
 		try {
@@ -134,7 +159,7 @@ public class GestionDecor {
 					worldY + nouveaujeu.tailleCarreaux > nouveaujeu.joueur.worldY - nouveaujeu.joueur.screenY &&
 					worldY - nouveaujeu.tailleCarreaux < nouveaujeu.joueur.worldY + nouveaujeu.joueur.screenY){
 
-					g2.drawImage(decor[NbCarreaux].image,screenX,screenY,nouveaujeu.tailleCarreaux,nouveaujeu.tailleCarreaux,null);
+					g2.drawImage(decor[NbCarreaux].image,screenX,screenY,null);
 
 				}
 				worldColonne++;

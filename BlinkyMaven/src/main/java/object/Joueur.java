@@ -1,6 +1,7 @@
 package object;
 
 import game.Keyinput;
+import game.OutilUtile;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -12,7 +13,7 @@ import javax.imageio.ImageIO;
 import game.Jeu;
 
 public class Joueur extends Parentsobject {
-	Jeu nouveaujeu;
+
 	Keyinput entrerClavier;
 
 	public final int screenX;
@@ -20,7 +21,7 @@ public class Joueur extends Parentsobject {
 
 	int ashEclair =0;
 	public Joueur (Jeu nouveaujeu,Keyinput entrerClavier) {
-		this.nouveaujeu=nouveaujeu;
+		super(nouveaujeu);
 		this.entrerClavier=entrerClavier;
 		screenX = nouveaujeu.largeurEcran/2 - (nouveaujeu.tailleCarreaux/2);
 		screenY = nouveaujeu.hauteurEcran/2 - (nouveaujeu.tailleCarreaux/2);
@@ -43,8 +44,18 @@ public class Joueur extends Parentsobject {
 		speed=4;
 		direction="bas";}
 	public void imageUpload() {
-		try {
-			/*les object sont dans la classe parent*/
+		
+		up1=setup("/joueur2/Haut1");
+		up2=setup("/joueur2/Haut2");
+		down1=setup("/joueur2/Bas1");
+		down2=setup("/joueur2/Bas2");
+		left1=setup("/joueur2/Gauche1");
+		left2=setup("/joueur2/Gauche2");
+		right1=setup("/joueur2/Droite1");
+		right2=setup("/joueur2/Droite2");
+		
+		/*try {
+			//les object sont dans la classe parent
 			up1=ImageIO.read(getClass().getResourceAsStream("/joueur2/Haut1.png"));
 			up2=ImageIO.read(getClass().getResourceAsStream("/joueur2/Haut2.png"));
 			down1=ImageIO.read(getClass().getResourceAsStream("/joueur2/Bas1.png"));
@@ -65,9 +76,11 @@ public class Joueur extends Parentsobject {
 			gameover=ImageIO.read(getClass().getResourceAsStream("/joueur/th.png"));
 		}catch(IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		// 10.49(ici on r�cup�re les info dans le dossier ressource pour ensuite les upload)
 	}
+	
+
 	public void update() {
 		/*cette section met a jour la position du joueur  selon les action choisi par le joueur, cette methode update est appele 60 fois par seconde*/
 		if(entrerClavier.toucheZ==true ||entrerClavier.toucheQ==true||
@@ -110,11 +123,17 @@ public class Joueur extends Parentsobject {
 		CollisionOn = false ;
 		nouveaujeu.Verifier.VerifierDecor(this);
 		
+		// Verification des collision avec les monstres
+		int monstreIndex = nouveaujeu.Verifier.VerifierParentsObject(this, nouveaujeu.monstre );
+		interactMonstre(monstreIndex);
+		
+		int FmonstreIndex = nouveaujeu.Verifier.VerifierParentsObject(this, nouveaujeu.Fmonstre );
+		interactMonstre(FmonstreIndex);
 
 		//int obj=nouveaujeu.Verifier.VerifierBonus2(this);
 		
 		
-		// Si collision est fausse, il peut bouger
+		// Si collision est fausse, il peut bougerssq
 		int obj=nouveaujeu.Verifier.VerifierBonus(this,true);
 		TakeObject(obj);
 		
@@ -167,6 +186,14 @@ public class Joueur extends Parentsobject {
 		}
 
 	}
+	
+public void interactMonstre(int i)	{
+	if(i != 999) {
+		
+	}
+}
+	
+	
 /*On peut rajouter si l'on veut l'option que le perso ne bouge pas quand on appuie sur aucune touche en remettant toute la partie d'avant
  * dans un autre if si on touche aucune touche */	
  
@@ -256,7 +283,7 @@ public class Joueur extends Parentsobject {
 		}
 		
 		
-		g2.drawImage(image,screenX,screenY, nouveaujeu.tailleCarreaux, nouveaujeu.tailleCarreaux, null);}
+		g2.drawImage(image,screenX,screenY, null);}
 		
 	}
 	

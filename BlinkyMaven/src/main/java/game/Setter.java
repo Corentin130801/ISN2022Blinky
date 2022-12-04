@@ -5,6 +5,8 @@ import bonus.ObjEclair;
 import bonus.ObjFlower;
 import bonus.ObjStar;
 import bonus.ObjTuto;
+import monstre.Bonhomme;
+import monstre.Fantome;
 
 public class Setter {
     Jeu nouveaujeu;
@@ -55,5 +57,14 @@ public class Setter {
         nouveaujeu.obj[4].worldY = 10*nouveaujeu.tailleCarreaux;*/
 
 
+    }
+    public void setMonstre(){
+    	nouveaujeu.Fmonstre[0]= new Fantome(nouveaujeu);
+    	nouveaujeu.Fmonstre[0].worldX = 22*nouveaujeu.tailleCarreaux;
+    	nouveaujeu.Fmonstre[0].worldY = 7*nouveaujeu.tailleCarreaux;
+    	
+    	nouveaujeu.monstre[0]= new Bonhomme(nouveaujeu);
+    	nouveaujeu.monstre[0].worldX = 21*nouveaujeu.tailleCarreaux;
+    	nouveaujeu.monstre[0].worldY = 7*nouveaujeu.tailleCarreaux;
     }
 }
