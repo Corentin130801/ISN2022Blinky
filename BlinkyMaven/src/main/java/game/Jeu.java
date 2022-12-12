@@ -25,7 +25,7 @@ public class Jeu extends JPanel implements Runnable{
 	public final int ligneEcran=12;
 	public final int largeurEcran=tailleCarreaux*colonneEcran;
 	public final int hauteurEcran=tailleCarreaux*ligneEcran;
-
+	public Boolean gameover=true;
 	// Parametres de la map
 	public final int maxWorldColonne = 50;
 	public final int maxWorldLigne = 50;
@@ -69,6 +69,7 @@ public class Jeu extends JPanel implements Runnable{
 		gameThread.start();
 		
 	}
+
 	@Override
 	public void run() {
 		/* ici on fait une interval de temps notre but est d'avoir 60Fps c'est � dire soixante frame par seconde
@@ -77,6 +78,7 @@ public class Jeu extends JPanel implements Runnable{
 		 */
 		double drawInterval= 1000000000/FPS; //conversion du temps en seconde 
 		double nextDrawTime=System.nanoTime()+ drawInterval;
+		
 		while(gameThread !=null) {
 			//System.out.println(entrerClavier.toucheZ);
 			//update
@@ -99,11 +101,17 @@ public class Jeu extends JPanel implements Runnable{
 			}
 			  
 			
-		}}
+		}
+		
+		}
 		public void update() {
 			
 			//Joueur 
-			joueur.update();
+			if(joueur.update()==1) {
+				gameThread=null;
+				System.out.println("endgame");
+				Window.destroy();
+			}
 			
 			//Monstre
 			
@@ -139,7 +147,7 @@ public class Jeu extends JPanel implements Runnable{
 		public void paintComponent(Graphics g) {  // une methode pour dessiner des choses qui appartient � JPanel, Grapihcs est une classe pour dessiner des objets
 			super.paintComponent(g); //une formalite de paintComponent
 			Graphics2D g2=(Graphics2D)g;
-
+			
 			// Dessin du décor
 			gestionD.draw(g2);  // on dessine le decor avant le joueur pour pas que le joueur soit cache
 
@@ -185,5 +193,9 @@ public class Jeu extends JPanel implements Runnable{
 			sound.setFile(i);
 			sound.play();
 		}
+
+		
+		d
 	}
+
 

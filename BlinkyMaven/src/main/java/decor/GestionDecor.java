@@ -80,6 +80,7 @@ public class GestionDecor {
 	
 	
 	public void loadMap() {
+	
 		try {
 			InputStream is = getClass().getResourceAsStream("/maps/worldMap.txt");
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));

@@ -17,16 +17,23 @@ public class Bonhomme extends Parentsobject {
 	
 	}
 	public void getImage() {
-		
+		up1=setup("/joueur/joueur3");
+		up2=setup("/joueur/joueur3");
+		down1=setup("/joueur/joueur3");
+		down2=setup("/joueur/joueur3");
+		left1=setup("/joueur/joueur3");
+		left2=setup("/joueur/joueur3");
+		right1=setup("/joueur/joueur3");
+		right2=setup("/joueur/joueur3");
 			
-			up1=setup("/joueur/boy_up_1");
+			/*up1=setup("/joueur/boy_up_1");
 			up2=setup("/joueur/boy_up_2");
 			down1=setup("/joueur/boy_down_1.1");
 			down2=setup("/joueur/boy_down_2.1");
 			left1=setup("/joueur/boy_left_1.1");
 			left2=setup("/joueur/boy_left_2.1");
 			right1=setup("/joueur/boy_right_1.1");
-			right2=setup("/joueur/boy_right_2");
+			right2=setup("/joueur/boy_right_2");*/
 			
 		}
 	public void setAction() {

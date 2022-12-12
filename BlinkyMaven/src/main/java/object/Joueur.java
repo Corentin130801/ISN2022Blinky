@@ -81,7 +81,7 @@ public class Joueur extends Parentsobject {
 	}
 	
 
-	public void update() {
+	public int update() {
 		/*cette section met a jour la position du joueur  selon les action choisi par le joueur, cette methode update est appele 60 fois par seconde*/
 		if(entrerClavier.toucheZ==true ||entrerClavier.toucheQ==true||
 				entrerClavier.toucheS==true ||entrerClavier.toucheD==true) {
@@ -135,7 +135,9 @@ public class Joueur extends Parentsobject {
 		
 		// Si collision est fausse, il peut bougerssq
 		int obj=nouveaujeu.Verifier.VerifierBonus(this,true);
-		TakeObject(obj);
+		if(TakeObject(obj)==1) {
+			return 1;
+		}
 		
 		if(CollisionOn== false) {
 			switch(direction) {
@@ -165,25 +167,34 @@ public class Joueur extends Parentsobject {
 				spriteCounter=0; // on le reinitialise
 			}
 		}
+		return 0;
 	}
 
 
-	public void TakeObject(int i){
+public int TakeObject(int i){
 		if(i!=999){    // n importe quel nombre est bon tant qu il est plus grand que l array des objets
 				String objectName = nouveaujeu.obj[i].name;
 				switch(objectName){
 					case "eclair":
 						speed=10;
 						nouveaujeu.obj[i] = null;
+						
 						break;
 					case "fleur":
+						
 						break;
 					case "etoile":
+						
 						break;
 					case "drapeau":
 						speed=0;
+						return 1;
+					default:
+						break;
 				}
+			
 		}
+		return 0;
 
 	}
 	
