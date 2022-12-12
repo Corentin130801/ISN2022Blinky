@@ -16,6 +16,7 @@ public class Parentsobject {
 	Jeu nouveaujeu;
 public int worldX,worldY; // position du joueur sur la map
 public int speed;
+public int vie;
 public BufferedImage up1,up2,down1,down2,left1,left2,right1,right2,toutedirection, DiagBasDroite1,DiagBasDroite2,
                      DiagBasGauche1, DiagBasGauche2, DiagHautDroite1, DiagHautDroite2, DiagHautGauche1, DiagHautGauche2,Monstre,gameover;  // BufferedImage decrit une image, cela permet d'utiliser et de manipuler l'image
 public String direction;

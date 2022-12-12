@@ -231,7 +231,11 @@ public int VerifierParentsObject(Parentsobject object, Parentsobject[] target) {
 				}
 				object.solidArea.x-=object.speed;
 				break;
+			default:
+				index=999;
+				break;
 			}
+			
 			object.solidArea.x=object.solidAreaDefaultX;
 			object.solidArea.y=object.solidAreaDefaultY;
 			target[i].solidArea.x=target[i].solidAreaDefaultX;

@@ -36,6 +36,7 @@ public class Jeu extends JPanel implements Runnable{
 	GestionDecor gestionD = new GestionDecor(this);
 	Keyinput entrerClavier =new Keyinput();
 	Sound sound=new Sound();
+	public Gestionnaire gestion= new Gestionnaire(this);
 	Thread gameThread;
 	public VerifierCollision Verifier = new VerifierCollision(this);
 	public Setter set = new Setter(this);
@@ -109,6 +110,7 @@ public class Jeu extends JPanel implements Runnable{
 			//Joueur 
 			if(joueur.update()==1) {
 				gameThread=null;
+				//gestion.drawend(null);
 				System.out.println("endgame");
 				Window.destroy();
 			}
@@ -175,7 +177,7 @@ public class Jeu extends JPanel implements Runnable{
 			}
 			
 			joueur.draw(g2);
-			
+			gestion.draw(g2);
 			
 			/*g2.setColor(Color.white);
 			g2.fillRect(playerX,playerY,tailleCarreaux/2 , tailleCarreaux/2);*/
@@ -195,7 +197,7 @@ public class Jeu extends JPanel implements Runnable{
 		}
 
 		
-		d
+		
 	}
 
 

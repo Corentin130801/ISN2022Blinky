@@ -33,7 +33,7 @@ public class Joueur extends Parentsobject {
 		solidAreaDefaultY=solidArea.y;
 		solidArea.width=32;
 		solidArea.height=28;
-		
+		vie=3;
 		
 		positionetvitessededepart();
 		imageUpload();
@@ -126,8 +126,22 @@ public class Joueur extends Parentsobject {
 		// Verification des collision avec les monstres
 		int monstreIndex = nouveaujeu.Verifier.VerifierParentsObject(this, nouveaujeu.monstre );
 		interactMonstre(monstreIndex);
+
+		if(monstreIndex!=999) {
+			nouveaujeu.joueur.vie-=1;
+			if(nouveaujeu.joueur.vie<1) {
+				return 1;
+			}
+		}
 		
 		int FmonstreIndex = nouveaujeu.Verifier.VerifierParentsObject(this, nouveaujeu.Fmonstre );
+
+		if(FmonstreIndex!=999) {
+			nouveaujeu.joueur.vie-=1;
+			if(nouveaujeu.joueur.vie<1) {
+				return 1;
+			}
+		}
 		interactMonstre(FmonstreIndex);
 
 		//int obj=nouveaujeu.Verifier.VerifierBonus2(this);
@@ -181,6 +195,8 @@ public int TakeObject(int i){
 						
 						break;
 					case "fleur":
+						vie+=1;
+						nouveaujeu.obj[i] = null;
 						
 						break;
 					case "etoile":
