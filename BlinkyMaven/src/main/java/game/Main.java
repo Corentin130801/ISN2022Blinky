@@ -18,10 +18,10 @@ public class Main {
 		Window.init();
 		Jeu jeu =new Jeu();
 		Window.start(jeu);
-		JLayeredPane frame = new JLayeredPane();
-		frame.FirstWindow();
+		//JLayeredPane frame = new JLayeredPane();
+		//frame.FirstWindow();
 		
-		/*window.add(jeu);qq
+		/*window.add(jeu);
 		window.pack();
 		window.setLocationRelativeTo(null); // pas de location sp�cifi�e, windows la placera au centre
 		window.setVisible(true);

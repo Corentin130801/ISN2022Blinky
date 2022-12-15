@@ -65,7 +65,7 @@ public class Jeu extends JPanel implements Runnable{
 	public void setUpGame(){
 		set.setObjects();
 		set.setMonstre();
-		playMusic(0);
+		//playMusic(0);
 	}
 	public void startGameThread() {
 		gameThread=new Thread(this);
