@@ -3,7 +3,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 public class Keyinput implements KeyListener{
 	/*ici la touche z permet d'aller en haut ,s en bas,d � droite,q � gauche*/
-	public boolean toucheZ,toucheS,toucheQ,toucheD,touche1,touche2,touche3;
+	public boolean toucheZ,toucheS,toucheQ,toucheD,touche1,touche2,touche3,espace,enter;
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -34,6 +34,12 @@ public class Keyinput implements KeyListener{
 		if(code==KeyEvent.VK_3){
 			touche3=true;
 		}
+		if(code==KeyEvent.VK_SPACE){
+			espace=true;
+		}
+		if(code==KeyEvent.VK_ENTER){
+			enter=true;
+		}
 	}
 
 	@Override
@@ -59,6 +65,12 @@ public class Keyinput implements KeyListener{
 			touche2=false;
 		}if(code==KeyEvent.VK_3) {
 			touche3=false;
+		}
+		if(code==KeyEvent.VK_SPACE){
+			espace=false;
+		}
+		if(code==KeyEvent.VK_ENTER){
+			enter=false;
 		}
 	}
 

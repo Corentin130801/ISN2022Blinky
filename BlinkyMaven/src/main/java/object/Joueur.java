@@ -150,7 +150,7 @@ public class Joueur extends Parentsobject {
 		// Si collision est fausse, il peut bougerssq
 		int obj=nouveaujeu.Verifier.VerifierBonus(this,true);
 		if(TakeObject(obj)==1) {
-			return 1;
+			return 2;
 		}
 		
 		if(CollisionOn== false) {

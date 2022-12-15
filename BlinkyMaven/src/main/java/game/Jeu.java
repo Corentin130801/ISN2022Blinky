@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.Random;
+
 import javax.swing.JPanel;
 
 //import bonus.SuperBonus;
@@ -32,7 +34,8 @@ public class Jeu extends JPanel implements Runnable{
 	public final int hauteurWorld = tailleCarreaux*maxWorldLigne;
 	public final int largeurWorld = tailleCarreaux*maxWorldColonne;
 	int FPS=60;
-	
+	Random random = new Random();
+	public int valeatoire=random.nextInt(3);
 	GestionDecor gestionD = new GestionDecor(this);
 	Keyinput entrerClavier =new Keyinput();
 	Sound sound=new Sound();
@@ -40,7 +43,11 @@ public class Jeu extends JPanel implements Runnable{
 	Thread gameThread;
 	public VerifierCollision Verifier = new VerifierCollision(this);
 	public Setter set = new Setter(this);
-	public  int carte=150;
+	//public  int carte=150;
+	public Boolean gamestart=true;
+	public Boolean endgame=false;
+	public Boolean destroy=false;
+	public Boolean victoire;
 
 	
 	
@@ -81,22 +88,9 @@ public class Jeu extends JPanel implements Runnable{
 		 */
 		double drawInterval= 1000000000/FPS; //conversion du temps en seconde 
 		double nextDrawTime=System.nanoTime()+ drawInterval;
-		while(carte==150) {
-			long currentTime=System.nanoTime();
+		while(gamestart) {		
 			preupdate();
-			repaint();
-			
-			try {
-				double remainingTime=nextDrawTime-System.nanoTime();
-				remainingTime=remainingTime/1000000;// ici il reste le temps d'une frame plus le temps d'execution 
-				if(remainingTime<0) {
-					remainingTime=0;
-				}
-				Thread.sleep((long)remainingTime);// on l'utilise ici pour finaliser les frame dans le thread, cette methode accepte que des long
-				nextDrawTime+=drawInterval;
-			}catch(InterruptedException e) {
-				e.printStackTrace();
-			}
+			repaint();	
 			  
 		}
 		
@@ -124,10 +118,22 @@ public class Jeu extends JPanel implements Runnable{
 			  
 			
 		}
+		while(endgame=true) {
+			preupdate();
+			repaint();
+			}
+		
+		
+		
 		
 		}
 	public void preupdate(){
-		if(entrerClavier.touche1==true) {
+		if(entrerClavier.espace==true) {
+			gamestart=false;}
+		if(entrerClavier.enter==true) {
+			endgame=false;
+			destroy=true;}
+		/*if(entrerClavier.touche1==true) {
 		carte=0;
 		
 	}
@@ -136,17 +142,24 @@ public class Jeu extends JPanel implements Runnable{
 	}
 	else if(entrerClavier.touche3==true) {
 		carte=3;	
-			}
+			}*/
 	
 	}
 		public void update() {
 			
 			//Joueur 
-			if(joueur.update()==1) {
+			if(joueur.update()!=0) {
 				gameThread=null;
 				//gestion.drawend(null);
+				endgame=true;
+				if(joueur.update()==1) {
+					victoire=false;
+				}
+				else {
+					victoire=true;
+				}
 				System.out.println("endgame");
-				Window.destroy();
+				//Window.destroy();
 			}
 			
 			//Monstre
@@ -183,10 +196,19 @@ public class Jeu extends JPanel implements Runnable{
 		public void paintComponent(Graphics g) {  // une methode pour dessiner des choses qui appartient � JPanel, Grapihcs est une classe pour dessiner des objets
 			super.paintComponent(g); //une formalite de paintComponent
 			Graphics2D g2=(Graphics2D)g;
-			if(carte==150) {
-				gestion.drawend(g2);
+			if(gamestart){
+				gestion.drawstart(g2);
 			}
-			else {
+			else if(endgame){
+				if(victoire) {
+				gestion.drawvictoire(g2);}
+				else {
+				gestion.drawend(g2);}
+			}
+			else if(destroy) {
+				Window.destroy();
+			}
+			else  {
 			// Dessin du décor
 			gestionD.draw(g2);  // on dessine le decor avant le joueur pour pas que le joueur soit cache
 
