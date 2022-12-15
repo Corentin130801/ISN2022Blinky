@@ -1,12 +1,16 @@
 package object;
 
+import bonus.ObjEclair;
 import game.Keyinput;
 import game.OutilUtile;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.imageio.ImageIO;
 
@@ -18,6 +22,8 @@ public class Joueur extends Parentsobject {
 
 	public final int screenX;
 	public final int screenY;
+
+	public int count;
 
 	int ashEclair =0;
 	public Joueur (Jeu nouveaujeu,Keyinput entrerClavier) {
@@ -83,6 +89,7 @@ public class Joueur extends Parentsobject {
 
 	public int update() {
 		/*cette section met a jour la position du joueur  selon les action choisi par le joueur, cette methode update est appele 60 fois par seconde*/
+
 		if(entrerClavier.toucheZ==true ||entrerClavier.toucheQ==true||
 				entrerClavier.toucheS==true ||entrerClavier.toucheD==true) {
 		
@@ -180,6 +187,7 @@ public class Joueur extends Parentsobject {
 				}
 				spriteCounter=0; // on le reinitialise
 			}
+			count+=1;
 		}
 		return 0;
 	}
@@ -190,8 +198,8 @@ public int TakeObject(int i) {
 		String objectName = nouveaujeu.obj[i].name;
 		switch (objectName) {
 			case "eclair":
-				speed = 10;
-				nouveaujeu.obj[i] = null;
+				speed=10;
+				nouveaujeu.obj[i]=null;
 
 				break;
 			case "fleur":
