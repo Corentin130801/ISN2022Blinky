@@ -40,7 +40,8 @@ public class Jeu extends JPanel implements Runnable{
 	Thread gameThread;
 	public VerifierCollision Verifier = new VerifierCollision(this);
 	public Setter set = new Setter(this);
-	public String carte;
+	public static int carte=0;
+	public Boolean debut;
 	
 	
 	// Parentsobject et Object
@@ -51,8 +52,8 @@ public class Jeu extends JPanel implements Runnable{
 	
 
 	
-	public Jeu(String carte) {
-		this.carte=carte;
+	public Jeu() {
+		
 		this.setPreferredSize(new Dimension(largeurEcran,hauteurEcran ));
 		this.setBackground(Color.black);//couleur du fond
 		this.setDoubleBuffered(true);
@@ -80,6 +81,7 @@ public class Jeu extends JPanel implements Runnable{
 		 */
 		double drawInterval= 1000000000/FPS; //conversion du temps en seconde 
 		double nextDrawTime=System.nanoTime()+ drawInterval;
+		
 		
 		while(gameThread !=null) {
 			//System.out.println(entrerClavier.toucheZ);

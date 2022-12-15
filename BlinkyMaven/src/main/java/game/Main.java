@@ -16,7 +16,7 @@ public class Main {
 		window.setLocationRelativeTo(null); // pas de location specifiee, windows la placera au centre*/
 		
 		Window.init();
-		Jeu jeu =new Jeu("worldMap");
+		Jeu jeu =new Jeu();
 		Window.start(jeu);
 		
 		

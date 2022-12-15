@@ -82,8 +82,15 @@ public class GestionDecor {
 	public void loadMap() {
 	
 		try {
-			InputStream is = getClass().getResourceAsStream("/maps/"+nouveaujeu.carte+".txt");
+			
+			InputStream is;
+			if(Jeu.carte==0) {
+			is= getClass().getResourceAsStream("/maps/worldMap.txt");}
+			else {
+				is= getClass().getResourceAsStream("/maps/worldMap2.txt");
+			}
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+			
 
 		
 			int colonne=0;

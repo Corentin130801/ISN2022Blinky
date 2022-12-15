@@ -2,8 +2,8 @@ package game;
 
 public class PreGame extends Jeu{
 
-	public PreGame(String carte) {
-		super(carte);
+	public PreGame() {
+		
 		// TODO Auto-generated constructor stub
 	}
 
