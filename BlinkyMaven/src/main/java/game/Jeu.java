@@ -40,7 +40,7 @@ public class Jeu extends JPanel implements Runnable{
 	Thread gameThread;
 	public VerifierCollision Verifier = new VerifierCollision(this);
 	public Setter set = new Setter(this);
-	String carte;
+	public String carte;
 	
 	
 	// Parentsobject et Object
