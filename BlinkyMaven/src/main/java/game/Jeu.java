@@ -40,8 +40,8 @@ public class Jeu extends JPanel implements Runnable{
 	Thread gameThread;
 	public VerifierCollision Verifier = new VerifierCollision(this);
 	public Setter set = new Setter(this);
-	public static int carte=0;
-	public Boolean debut;
+	public  int carte=150;
+
 	
 	
 	// Parentsobject et Object
@@ -81,13 +81,31 @@ public class Jeu extends JPanel implements Runnable{
 		 */
 		double drawInterval= 1000000000/FPS; //conversion du temps en seconde 
 		double nextDrawTime=System.nanoTime()+ drawInterval;
-		
+		while(carte==150) {
+			long currentTime=System.nanoTime();
+			preupdate();
+			repaint();
+			
+			try {
+				double remainingTime=nextDrawTime-System.nanoTime();
+				remainingTime=remainingTime/1000000;// ici il reste le temps d'une frame plus le temps d'execution 
+				if(remainingTime<0) {
+					remainingTime=0;
+				}
+				Thread.sleep((long)remainingTime);// on l'utilise ici pour finaliser les frame dans le thread, cette methode accepte que des long
+				nextDrawTime+=drawInterval;
+			}catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+			  
+		}
 		
 		while(gameThread !=null) {
 			//System.out.println(entrerClavier.toucheZ);
 			//update
 			long currentTime=System.nanoTime();
 			//System.out.println("time"+currentTime);
+			
 			update();
 			//Draw
 			repaint();
@@ -108,6 +126,19 @@ public class Jeu extends JPanel implements Runnable{
 		}
 		
 		}
+	public void preupdate(){
+		if(entrerClavier.touche1==true) {
+		carte=0;
+		
+	}
+	else if(entrerClavier.touche2==true) {
+		carte=2;
+	}
+	else if(entrerClavier.touche3==true) {
+		carte=3;	
+			}
+	
+	}
 		public void update() {
 			
 			//Joueur 
@@ -152,7 +183,10 @@ public class Jeu extends JPanel implements Runnable{
 		public void paintComponent(Graphics g) {  // une methode pour dessiner des choses qui appartient � JPanel, Grapihcs est une classe pour dessiner des objets
 			super.paintComponent(g); //une formalite de paintComponent
 			Graphics2D g2=(Graphics2D)g;
-			
+			if(carte==150) {
+				gestion.drawend(g2);
+			}
+			else {
 			// Dessin du décor
 			gestionD.draw(g2);  // on dessine le decor avant le joueur pour pas que le joueur soit cache
 
@@ -184,7 +218,7 @@ public class Jeu extends JPanel implements Runnable{
 			
 			/*g2.setColor(Color.white);
 			g2.fillRect(playerX,playerY,tailleCarreaux/2 , tailleCarreaux/2);*/
-			g2.dispose();
+			g2.dispose();}
 		}
 		public void playMusic(int i ) {
 			sound.setFile(i);

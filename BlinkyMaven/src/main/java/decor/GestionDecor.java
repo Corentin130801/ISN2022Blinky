@@ -84,7 +84,7 @@ public class GestionDecor {
 		try {
 			
 			InputStream is;
-			if(Jeu.carte==0) {
+			if(nouveaujeu.carte==0) {
 			is= getClass().getResourceAsStream("/maps/worldMap.txt");}
 			else {
 				is= getClass().getResourceAsStream("/maps/worldMap2.txt");

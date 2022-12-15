@@ -20,7 +20,9 @@ public class Gestionnaire {
 	 g2.drawString("Santé="+nouveaujeu.joueur.vie, 50, 50);
  }
  public void drawend(Graphics2D g2) {
-	g2.drawImage(gameover,0,0,nouveaujeu.hauteurEcran,nouveaujeu.largeurEcran,null);
+	 g2.setFont(arial_40);
+	 g2.setColor(Color.white);
+	 g2.drawString("Choisir un niveau 1 2 3" , 250, 250);
  }
  
 }
