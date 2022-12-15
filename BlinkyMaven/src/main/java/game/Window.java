@@ -3,8 +3,11 @@ package game;
 import javax.swing.JFrame;
 
 
+
+
 public class Window {
 	static JFrame window2 = new JFrame();
+
 	public static void init() {
 	
 	
@@ -16,7 +19,6 @@ public class Window {
 
 }
 	public static void start(Jeu jeu) {
-		
 		window2.add(jeu);
 		window2.pack();
 		window2.setLocationRelativeTo(null); // pas de location sp�cifi�e, windows la placera au centre

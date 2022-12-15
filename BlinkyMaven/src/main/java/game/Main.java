@@ -1,6 +1,6 @@
 package game;
 
-import javax.swing.JFrame; // Cela ajoute une fenetre avec une bordure et une barre de titre
+import javax.swing.*;
 
 public class Main {
 	
@@ -18,9 +18,10 @@ public class Main {
 		Window.init();
 		Jeu jeu =new Jeu("worldMap");
 		Window.start(jeu);
+		JLayeredPane frame = new JLayeredPane();
+		frame.FirstWindow();
 		
-		
-		/*window.add(jeu);
+		/*window.add(jeu);qq
 		window.pack();
 		window.setLocationRelativeTo(null); // pas de location sp�cifi�e, windows la placera au centre
 		window.setVisible(true);
