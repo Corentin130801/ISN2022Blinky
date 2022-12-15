@@ -185,35 +185,39 @@ public class Joueur extends Parentsobject {
 	}
 
 
-public int TakeObject(int i){
-		if(i!=999){    // n importe quel nombre est bon tant qu il est plus grand que l array des objets
-				String objectName = nouveaujeu.obj[i].name;
-				switch(objectName){
-					case "eclair":
-						speed=10;
-						nouveaujeu.obj[i] = null;
-						
-						break;
-					case "fleur":
-						vie+=1;
-						nouveaujeu.obj[i] = null;
-						
-						break;
-					case "etoile":
-						
-						break;
-					case "drapeau":
-						speed=0;
-						return 1;
-					default:
-						break;
-				}
-			
+public int TakeObject(int i) {
+	if (i != 999) {    // n importe quel nombre est bon tant qu il est plus grand que l array des objets
+		String objectName = nouveaujeu.obj[i].name;
+		switch (objectName) {
+			case "eclair":
+				speed = 10;
+				nouveaujeu.obj[i] = null;
+
+				break;
+			case "fleur":
+				vie += 1;
+				nouveaujeu.obj[i] = null;
+
+				break;
+			case "etoile":
+
+				break;
+			case "drapeau":
+				speed = 0;
+				return 1;
+			default:
+				break;
 		}
-		return 0;
 
 	}
-	
+	return 0;
+}
+
+
+
+
+
+
 public void interactMonstre(int i)	{
 	if(i != 999) {
 		
