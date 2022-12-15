@@ -40,7 +40,7 @@ public class Jeu extends JPanel implements Runnable{
 	Thread gameThread;
 	public VerifierCollision Verifier = new VerifierCollision(this);
 	public Setter set = new Setter(this);
-	
+	String carte;
 	
 	
 	// Parentsobject et Object
@@ -51,7 +51,8 @@ public class Jeu extends JPanel implements Runnable{
 	
 
 	
-	public Jeu() {
+	public Jeu(String carte) {
+		this.carte=carte;
 		this.setPreferredSize(new Dimension(largeurEcran,hauteurEcran ));
 		this.setBackground(Color.black);//couleur du fond
 		this.setDoubleBuffered(true);

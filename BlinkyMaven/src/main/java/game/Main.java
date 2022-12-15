@@ -14,8 +14,9 @@ public class Main {
 		window.setTitle("Blinky"); // pour afficher le titre
 		window.setResizable(false); // permet de donner la taille qu'on veut a la fenetre sans qu'elle soit redimensionnee
 		window.setLocationRelativeTo(null); // pas de location specifiee, windows la placera au centre*/
+		
 		Window.init();
-		Jeu jeu =new Jeu();
+		Jeu jeu =new Jeu(null);
 		Window.start(jeu);
 		/*window.add(jeu);
 		window.pack();
