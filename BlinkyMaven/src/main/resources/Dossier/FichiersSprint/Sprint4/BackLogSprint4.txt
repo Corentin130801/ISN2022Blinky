@@ -4,4 +4,6 @@ Fonctionnalites à faire :
 
 - Gérer la temporarité des bonus (ex:le bonus éclair)
 - Rajouter plus de monstres
+- Pouvoir tuer les monstres
+- Optimaliser l'affichage
 
