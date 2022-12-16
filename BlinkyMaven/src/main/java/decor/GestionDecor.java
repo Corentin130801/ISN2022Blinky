@@ -87,13 +87,13 @@ public class GestionDecor {
 			if(nouveaujeu.valeatoire==0) {
 			is= getClass().getResourceAsStream("/maps/worldMap.txt");}
 			else if(nouveaujeu.valeatoire==1) {
-				is= getClass().getResourceAsStream("/maps/map01.txt");
+				is= getClass().getResourceAsStream("/maps/worldMap3.txt");
 			}
 			else if(nouveaujeu.valeatoire==2) {
-				is= getClass().getResourceAsStream("/maps/map01.txt");
+				is= getClass().getResourceAsStream("/maps/worldMap2.txt");
 			}
 			else {
-				is= getClass().getResourceAsStream("/maps/map01.txt");
+				is= getClass().getResourceAsStream("/maps/worldMap.txt");
 			}
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 			
