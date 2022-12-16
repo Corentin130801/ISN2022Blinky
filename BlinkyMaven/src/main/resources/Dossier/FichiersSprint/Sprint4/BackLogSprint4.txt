@@ -1,0 +1,7 @@
+## BackLog 4
+
+Fonctionnalites à faire :
+
+- Gérer la temporarité des bonus (ex:le bonus éclair)
+- Rajouter plus de monstres
+

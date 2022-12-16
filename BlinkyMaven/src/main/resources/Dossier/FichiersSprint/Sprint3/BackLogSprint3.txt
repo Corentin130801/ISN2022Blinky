@@ -7,3 +7,4 @@ Fonctionnalites à faire :
 - Héro : santé (possibilite de mourir) et l'afficher aussi
 - creer plusieurs labyrinthes
 - implementer la fin du jeu en affichant  par ex : "You won" ou "Game Over"
+
