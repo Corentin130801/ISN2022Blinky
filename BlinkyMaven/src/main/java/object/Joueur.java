@@ -156,7 +156,7 @@ public class Joueur extends Parentsobject {
 		
 		// Si collision est fausse, il peut bougerssq
 		int obj=nouveaujeu.Verifier.VerifierBonus(this,true);
-		if(TakeObject(obj)==1) {
+		if(TakeObject(obj,count)==1) {
 			return 2;
 		}
 		
@@ -174,7 +174,7 @@ public class Joueur extends Parentsobject {
 	}
 		
 		
-		
+
 			spriteCounter++; // le compteur augmente de 1 a chaque frame
 			if(spriteCounter>10) {
 				// on va changer l'image toutes les 10 frames sachant qu'il y en a 60/s, ce qui implique qu'on verra l'hero courir
@@ -187,20 +187,21 @@ public class Joueur extends Parentsobject {
 				}
 				spriteCounter=0; // on le reinitialise
 			}
-			count+=1;
+
 		}
 		return 0;
+
 	}
 
 
-public int TakeObject(int i) {
+
+public int TakeObject(int i, int count) {
 	if (i != 999) {    // n importe quel nombre est bon tant qu il est plus grand que l array des objets
 		String objectName = nouveaujeu.obj[i].name;
 		switch (objectName) {
 			case "eclair":
-				speed=10;
-				nouveaujeu.obj[i]=null;
-
+				speed = 10;
+				nouveaujeu.obj[i] = null;
 				break;
 			case "fleur":
 				vie += 1;
@@ -208,6 +209,7 @@ public int TakeObject(int i) {
 
 				break;
 			case "etoile":
+				nouveaujeu.obj[i] = null;
 
 				break;
 			case "drapeau":

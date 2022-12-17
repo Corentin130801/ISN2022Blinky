@@ -55,6 +55,10 @@ public class Setter {
         nouveaujeu.obj[4] = new ObjFlower();
         nouveaujeu.obj[4].worldX = 20*nouveaujeu.tailleCarreaux;
         nouveaujeu.obj[4].worldY = 6*nouveaujeu.tailleCarreaux;
+
+        nouveaujeu.obj[5] = new ObjStar();
+        nouveaujeu.obj[5].worldX = 20*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[5].worldY = 8*nouveaujeu.tailleCarreaux;
        /* nouveaujeu.obj[4] = new ObjTuto();
         nouveaujeu.obj[4].worldX = 18*nouveaujeu.tailleCarreaux;
         nouveaujeu.obj[4].worldY = 10*nouveaujeu.tailleCarreaux;*/

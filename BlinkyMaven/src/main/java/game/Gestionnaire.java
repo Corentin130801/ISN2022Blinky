@@ -26,7 +26,7 @@ public class Gestionnaire {
  public void drawstart(Graphics2D g2) {
 	 g2.setFont(header);
 	 g2.setColor(Color.red);
-	 g2.drawString("Bienvenue dans IsnBlinky" , 20, 60);
+	 g2.drawString("Bienvenue dans notre Jeu : BLINKY" , 20, 60);
 	 g2.setFont(book_antique);
 	 g2.setColor(Color.white);
 	 g2.drawString("Pour se déplacer appuie sur : " , 50, 150);
@@ -38,7 +38,7 @@ public class Gestionnaire {
 	 g2.setColor(Color.yellow);
 	 g2.drawString("Mais attention aux monstres!!" , 50, 450);
 	 g2.setColor(Color.GREEN);
-	 g2.drawString("Appuyez sur espace pour continuer" , 50, 500);
+	 g2.drawString("Appuyez sur espace pour commencer" , 50, 500);
 	 
  }
  public void drawend(Graphics2D g2) {
