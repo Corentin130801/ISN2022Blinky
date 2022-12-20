@@ -6,4 +6,4 @@ Fonctionnalites à faire :
 - Rajouter plus de monstres
 - Pouvoir tuer les monstres
 - Optimaliser l'affichage
-
+- faire un test unitaire (ex: tester VerifierCollision dans un coin à gauche)
