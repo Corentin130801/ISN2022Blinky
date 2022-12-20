@@ -23,7 +23,12 @@ public class Joueur extends Parentsobject {
 	public final int screenX;
 	public final int screenY;
 
-	public int count;
+	public int countHasEclair;
+	public int countHasStar;
+	public int frameMaxHasObject=60*5;
+
+	public boolean hasEclair;
+	public boolean hasStar;
 
 	int ashEclair =0;
 	public Joueur (Jeu nouveaujeu,Keyinput entrerClavier) {
@@ -89,7 +94,22 @@ public class Joueur extends Parentsobject {
 
 	public int update() {
 		/*cette section met a jour la position du joueur  selon les action choisi par le joueur, cette methode update est appele 60 fois par seconde*/
-
+		if(hasEclair){
+			countHasEclair++;
+			if(countHasEclair>=frameMaxHasObject){
+				hasEclair=false;
+				countHasEclair=0;
+				speed=4;
+			}
+		}
+		if(hasStar){
+			countHasStar++;
+			if(countHasStar>=frameMaxHasObject){
+				hasStar=false;
+				countHasStar=0;
+				vie=3;
+			}
+		}
 		if(entrerClavier.toucheZ==true ||entrerClavier.toucheQ==true||
 				entrerClavier.toucheS==true ||entrerClavier.toucheD==true) {
 		
@@ -156,7 +176,7 @@ public class Joueur extends Parentsobject {
 		
 		// Si collision est fausse, il peut bougerssq
 		int obj=nouveaujeu.Verifier.VerifierBonus(this,true);
-		if(TakeObject(obj,count)==1) {
+		if(TakeObject(obj)==1) {
 			return 2;
 		}
 		
@@ -195,13 +215,15 @@ public class Joueur extends Parentsobject {
 
 
 
-public int TakeObject(int i, int count) {
+public int TakeObject(int i) {
 	if (i != 999) {    // n importe quel nombre est bon tant qu il est plus grand que l array des objets
 		String objectName = nouveaujeu.obj[i].name;
 		switch (objectName) {
 			case "eclair":
+				hasEclair=true;
 				speed = 10;
 				nouveaujeu.obj[i] = null;
+				countHasEclair=0;
 				break;
 			case "fleur":
 				vie += 1;
@@ -209,7 +231,10 @@ public int TakeObject(int i, int count) {
 
 				break;
 			case "etoile":
+				hasStar=true;
+				vie=1000;
 				nouveaujeu.obj[i] = null;
+				countHasStar=0;
 
 				break;
 			case "drapeau":
