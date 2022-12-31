@@ -22,7 +22,7 @@ public class Joueur extends Parentsobject {
 
 	public final int screenX;
 	public final int screenY;
-
+	public int invincibletimer;
 	public int countHasEclair;
 	public int countHasStar;
 	public int frameMaxHasObject=60*5;
@@ -45,6 +45,7 @@ public class Joueur extends Parentsobject {
 		solidArea.width=32;
 		solidArea.height=28;
 		vie=3;
+		invincibletimer=0;
 		
 		positionetvitessededepart();
 		imageUpload();
@@ -155,7 +156,12 @@ public class Joueur extends Parentsobject {
 		interactMonstre(monstreIndex);
 
 		if(monstreIndex!=999) {
+			if(invincibletimer==0) {
 			nouveaujeu.joueur.vie-=1;
+			invincibletimer=90;}
+			else {
+				invincibletimer--;
+			}
 			if(nouveaujeu.joueur.vie<1) {
 				return 1;
 			}
@@ -164,7 +170,12 @@ public class Joueur extends Parentsobject {
 		int FmonstreIndex = nouveaujeu.Verifier.VerifierParentsObject(this, nouveaujeu.Fmonstre );
 
 		if(FmonstreIndex!=999) {
-			nouveaujeu.joueur.vie-=1;
+			if(invincibletimer==0) {
+				nouveaujeu.joueur.vie-=1;
+				invincibletimer=90;}
+				else {
+					invincibletimer--;
+				}
 			if(nouveaujeu.joueur.vie<1) {
 				return 1;
 			}

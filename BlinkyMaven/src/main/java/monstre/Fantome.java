@@ -29,6 +29,7 @@ public class Fantome extends Parentsobject {
 			right2=setup("/monstre/Fdroite2");
 			
 		}
+	@Override
 	public void setAction() {
 		
 		actionLockCounter ++;

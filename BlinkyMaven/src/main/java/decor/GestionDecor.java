@@ -177,13 +177,13 @@ public class GestionDecor {
 
 				}
 				worldColonne++;
-				//x+=nouveaujeu.tailleCarreaux;
+				
 				
 				if(worldColonne==nouveaujeu.maxWorldColonne) {
 					worldColonne=0;
-					//x=0;
+					
 					worldLigne++;
-					//y+=nouveaujeu.tailleCarreaux;
+					
 				}
 				
 			}	

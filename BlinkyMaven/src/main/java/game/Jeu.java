@@ -201,11 +201,14 @@ public class Jeu extends JPanel implements Runnable{
 			}
 			else if(endgame){
 				if(victoire) {
-				gestion.drawvictoire(g2);}
+				gestion.drawvictoire(g2);
+				}
 				else {
-				gestion.drawend(g2);}
+				gestion.drawend(g2);
+				}
 			}
 			else if(destroy) {
+				stopMusic();
 				Window.destroy();
 			}
 			else  {
