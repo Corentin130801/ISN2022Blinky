@@ -53,7 +53,7 @@ public class Joueur extends Parentsobject {
 	public void positionetvitessededepart(){
 		worldX=nouveaujeu.tailleCarreaux * 30;
 		worldY=nouveaujeu.tailleCarreaux * 2;
-		speed=4;
+		speed=6;
 		direction="bas";}
 	public void imageUpload() {
 		
@@ -100,7 +100,7 @@ public class Joueur extends Parentsobject {
 			if(countHasEclair>=frameMaxHasObject){
 				hasEclair=false;
 				countHasEclair=0;
-				speed=4;
+				speed=6;
 			}
 		}
 		if(hasStar){
