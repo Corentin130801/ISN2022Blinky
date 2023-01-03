@@ -21,9 +21,9 @@ public class Setter {
 	public  void setObjects(){
 
         nouveaujeu.obj[0] = new ObjEclair();
-        nouveaujeu.obj[0].worldX = 28*nouveaujeu.tailleCarreaux;
-        nouveaujeu.obj[0].worldY = 9*nouveaujeu.tailleCarreaux;
-		//System.out.println(nouveaujeu.obj[0].worldX);
+        nouveaujeu.obj[0].worldX = 29*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[0].worldY = 4*nouveaujeu.tailleCarreaux;
+
         
         nouveaujeu.obj[1] = new ObjEclair();
         nouveaujeu.obj[1].worldX = 30*nouveaujeu.tailleCarreaux;
@@ -31,7 +31,7 @@ public class Setter {
         
         nouveaujeu.obj[2] = new ObjEclair();
         nouveaujeu.obj[2].worldX = 23*nouveaujeu.tailleCarreaux;
-        nouveaujeu.obj[2].worldY = 30*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[2].worldY = 34*nouveaujeu.tailleCarreaux;
         
         nouveaujeu.obj[3] = new ObjDrapeau();
         nouveaujeu.obj[3].worldX = 45*nouveaujeu.tailleCarreaux;
@@ -42,12 +42,12 @@ public class Setter {
         nouveaujeu.obj[4].worldY = 13*nouveaujeu.tailleCarreaux;
 
         nouveaujeu.obj[6] = new ObjStar();
-        nouveaujeu.obj[6].worldX = 20*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[6].worldX = 23*nouveaujeu.tailleCarreaux;
         nouveaujeu.obj[6].worldY = 8*nouveaujeu.tailleCarreaux;
 
 		nouveaujeu.obj[7] = new ObjFlower();
-		nouveaujeu.obj[7].worldX = 35*nouveaujeu.tailleCarreaux;
-		nouveaujeu.obj[7].worldY = 35*nouveaujeu.tailleCarreaux;
+		nouveaujeu.obj[7].worldX = 4*nouveaujeu.tailleCarreaux;
+		nouveaujeu.obj[7].worldY = 8*nouveaujeu.tailleCarreaux;
 
 
 		nouveaujeu.obj[8]= new ObjStar();
@@ -55,8 +55,8 @@ public class Setter {
 		nouveaujeu.obj[8].worldY = 35*nouveaujeu.tailleCarreaux;
 
 		nouveaujeu.obj[9] = new ObjStar();
-		nouveaujeu.obj[9].worldX = 6*nouveaujeu.tailleCarreaux;
-		nouveaujeu.obj[9].worldY = 30*nouveaujeu.tailleCarreaux;
+		nouveaujeu.obj[9].worldX = 10*nouveaujeu.tailleCarreaux;
+		nouveaujeu.obj[9].worldY = 32*nouveaujeu.tailleCarreaux;
 
 	}
     public void setMonstre(){
