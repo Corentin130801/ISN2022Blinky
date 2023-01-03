@@ -11,6 +11,7 @@ public class Bonhomme extends Parentsobject {
 		super(nouveaujeu);
 		direction="bas";
 		speed=1;
+		vie=1;
 		
 		getImage();
 
@@ -51,5 +52,8 @@ public class Bonhomme extends Parentsobject {
 		}
 		actionLockCounter=0;
 	}
+	}
+	public  int getBonhommmevie() {
+		return getVie();
 	}
 	}

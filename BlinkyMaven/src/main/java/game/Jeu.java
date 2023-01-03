@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 //import bonus.SuperBonus;
 import bonus.SuperBonus;
 import decor.GestionDecor;
+import monstre.Bonhomme;
 import object.Joueur;
 
 import object.Parentsobject;
@@ -37,7 +38,7 @@ public class Jeu extends JPanel implements Runnable{
 	Random random = new Random();
 	public int valeatoire=random.nextInt(3);
 	GestionDecor gestionD = new GestionDecor(this);
-	Keyinput entrerClavier =new Keyinput();
+	public Keyinput entrerClavier =new Keyinput();
 	Sound sound=new Sound();
 	public Gestionnaire gestion= new Gestionnaire(this);
 	Thread gameThread;
@@ -72,7 +73,7 @@ public class Jeu extends JPanel implements Runnable{
 	public void setUpGame(){
 		set.setObjects();
 		set.setMonstre();
-		playMusic(0);
+		//playMusic(0);
 	}
 	public void startGameThread() {
 		gameThread=new Thread(this);
@@ -167,6 +168,9 @@ public class Jeu extends JPanel implements Runnable{
 			for (int i =0; i<monstre.length; i++){
 				if(monstre[i] != null){
 					monstre[i].updateAvecCollision();
+					if(getBonhommevie(i)==0) {
+						monstre[i]=null;
+					}
 				}
 			}
 			//Fantome
@@ -193,6 +197,11 @@ public class Jeu extends JPanel implements Runnable{
 					}*/			
 		} 
 		
+		public int getBonhommevie(int i) {
+		return 	monstre[i].vie;
+			
+		}
+
 		public void paintComponent(Graphics g) {  // une methode pour dessiner des choses qui appartient � JPanel, Grapihcs est une classe pour dessiner des objets
 			super.paintComponent(g); //une formalite de paintComponent
 			Graphics2D g2=(Graphics2D)g;
@@ -208,7 +217,7 @@ public class Jeu extends JPanel implements Runnable{
 				}
 			}
 			else if(destroy) {
-				stopMusic();
+				//stopMusic();
 				Window.destroy();
 			}
 			else  {

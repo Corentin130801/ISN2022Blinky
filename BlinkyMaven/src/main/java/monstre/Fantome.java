@@ -11,6 +11,7 @@ public class Fantome extends Parentsobject {
 		super(nouveaujeu);
 		direction="bas";
 		speed=1;
+		setVie(1);
 		
 		getImage();
 

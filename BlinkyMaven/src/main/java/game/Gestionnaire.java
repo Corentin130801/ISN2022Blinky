@@ -21,7 +21,7 @@ public class Gestionnaire {
  public void draw(Graphics2D g2) {
 	 g2.setFont(arial_40);
 	 g2.setColor(Color.white);
-	 g2.drawString("Santé="+nouveaujeu.joueur.vie, 50, 50);
+	 g2.drawString("Santé="+nouveaujeu.joueur.getVie(), 50, 50);
  }
  public void drawstart(Graphics2D g2) {
 	 g2.setFont(header);
@@ -29,16 +29,18 @@ public class Gestionnaire {
 	 g2.drawString("Bienvenue dans notre Jeu : BLINKY" , 20, 60);
 	 g2.setFont(book_antique);
 	 g2.setColor(Color.white);
-	 g2.drawString("Pour se déplacer appuie sur : " , 50, 150);
-	 g2.drawString("Z pour aller en haut " , 50, 200);
-	 g2.drawString("Q pour aller à gauche " , 50, 250);
-	 g2.drawString("S pour aller en bas " , 50, 300);
-	 g2.drawString("D pour aller à droite" , 50, 350);
-	 g2.drawString("Le but est d'atteindre le drapeau " , 50, 400);
+	 g2.drawString("espace sur un monstre pour le tuer " , 50, 100);
+	 g2.drawString("Z pour aller en haut " , 50, 150);
+	 g2.drawString("Q pour aller à gauche " , 50, 200);
+	 g2.drawString("S pour aller en bas " , 50, 250);
+	 g2.drawString("D pour aller à droite" , 50, 300);
+	 g2.drawString("Le but est d'atteindre le drapeau " , 50, 350);
 	 g2.setColor(Color.yellow);
-	 g2.drawString("Mais attention aux monstres!!" , 50, 450);
+	 g2.drawString("Mais attention aux monstres!!" , 50, 400);
+	 g2.drawString("les monstre  roses enlève un point de vie  " , 50, 450);
+	 g2.drawString("les fantômes tue  " , 50, 500);
 	 g2.setColor(Color.GREEN);
-	 g2.drawString("Appuyez sur espace pour commencer" , 50, 500);
+	 g2.drawString("Appuyez sur espace pour commencer" , 50, 550);
 	 
  }
  public void drawend(Graphics2D g2) {

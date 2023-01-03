@@ -165,6 +165,12 @@ public BufferedImage setup(String imagePath) {
 	return scaledImage; 
 	
 }
+public int getVie() {
+	return vie;
+}
+public void setVie(int vie) {
+	this.vie = vie;
+}
 
 
 }

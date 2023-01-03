@@ -22,7 +22,7 @@ public class Joueur extends Parentsobject {
 
 	public final int screenX;
 	public final int screenY;
-	public int invincibletimer;
+	private int invincibletimer;
 	public int countHasEclair;
 	public int countHasStar;
 	public int frameMaxHasObject=60*5;
@@ -44,7 +44,7 @@ public class Joueur extends Parentsobject {
 		solidAreaDefaultY=solidArea.y;
 		solidArea.width=32;
 		solidArea.height=28;
-		vie=3;
+		setVie(3);
 		invincibletimer=0;
 		
 		positionetvitessededepart();
@@ -108,7 +108,7 @@ public class Joueur extends Parentsobject {
 			if(countHasStar>=frameMaxHasObject){
 				hasStar=false;
 				countHasStar=0;
-				vie=3;
+				setVie(3);
 			}
 		}
 		if(entrerClavier.toucheZ==true ||entrerClavier.toucheQ==true||
@@ -153,34 +153,34 @@ public class Joueur extends Parentsobject {
 		
 		// Verification des collision avec les monstres
 		int monstreIndex = nouveaujeu.Verifier.VerifierParentsObject(this, nouveaujeu.monstre );
-		interactMonstre(monstreIndex);
+		//interactMonstre(monstreIndex);
 
 		if(monstreIndex!=999) {
+			if(nouveaujeu.entrerClavier.espace) {
+				nouveaujeu.monstre[monstreIndex]=null;
+			}
 			if(invincibletimer==0) {
-			nouveaujeu.joueur.vie-=1;
-			invincibletimer=90;}
+			nouveaujeu.joueur.setVie(nouveaujeu.joueur.getVie() - 1);
+			invincibletimer=30;}
 			else {
 				invincibletimer--;
 			}
-			if(nouveaujeu.joueur.vie<1) {
+			if(nouveaujeu.joueur.getVie()<1) {
 				return 1;
 			}
 		}
 		
+		
 		int FmonstreIndex = nouveaujeu.Verifier.VerifierParentsObject(this, nouveaujeu.Fmonstre );
 
 		if(FmonstreIndex!=999) {
-			if(invincibletimer==0) {
-				nouveaujeu.joueur.vie-=1;
-				invincibletimer=90;}
-				else {
-					invincibletimer--;
-				}
-			if(nouveaujeu.joueur.vie<1) {
+				nouveaujeu.joueur.setVie(nouveaujeu.joueur.getVie() - 1);
+			if(nouveaujeu.joueur.getVie()<1) {
 				return 1;
 			}
 		}
-		interactMonstre(FmonstreIndex);
+		
+		//interactMonstre(FmonstreIndex);
 
 		//int obj=nouveaujeu.Verifier.VerifierBonus2(this);
 		
@@ -237,13 +237,13 @@ public int TakeObject(int i) {
 				countHasEclair=0;
 				break;
 			case "fleur":
-				vie += 1;
+				setVie(getVie() + 1);
 				nouveaujeu.obj[i] = null;
 
 				break;
 			case "etoile":
 				hasStar=true;
-				vie=1000;
+				setVie(1000);
 				nouveaujeu.obj[i] = null;
 				countHasStar=0;
 
@@ -266,7 +266,7 @@ public int TakeObject(int i) {
 
 public void interactMonstre(int i)	{
 	if(i != 999) {
-		
+		System.out.println("yeah");
 	}
 }
 	
@@ -279,7 +279,7 @@ public void interactMonstre(int i)	{
 	 *  si on ne veut pas avoir l'option d'aller en diagonal il faut rajout� un else devant les trois dernier if
 	 *  aller en diagonal augmente la vitesse par2 si on ne veut pas que cela ce produise il faut rajouter des else if avec une condition du style
 	 *  (entrerClavier.toucheS==true andentrerClavier.toucheD==true) */
-	
+	@Override
 	public void draw(Graphics2D g2){
 		/*g2.setColor(Color.white);
 		g2.fillRect(x,y,nouveaujeu.tailleCarreaux/2 , nouveaujeu.tailleCarreaux/2);*/
