@@ -1,4 +1,4 @@
-package decor;
+package bonus.decor;
 
 import java.awt.Graphics2D;
 import java.io.BufferedReader;

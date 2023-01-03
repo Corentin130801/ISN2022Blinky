@@ -1,0 +1,14 @@
+## Review Sprint 4
+
+- Gérer la temporarité des bonus :
+Fonctionnalité validée
+
+- Rajouter plus de monstres :
+Fonctionnalité validée
+
+- Pouvoir tuer les monstres :
+Fonctionnalité validée
+
+- faire un test unitaire
+Validé
+

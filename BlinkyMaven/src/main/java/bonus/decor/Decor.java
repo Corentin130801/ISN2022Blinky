@@ -1,4 +1,4 @@
-package decor;
+package bonus.decor;
 
 import java.awt.image.BufferedImage;
 

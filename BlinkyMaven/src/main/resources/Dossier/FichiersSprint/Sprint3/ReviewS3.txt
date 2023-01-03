@@ -1,4 +1,4 @@
-Bilan du Sprint 3:
+## Review du Sprint 3
 
 - Interaction avec n'importe quel bonus/objet : l'objet disparait une fois utilise sauf pour le drapeau de fin :
 Fonctionnalité validée

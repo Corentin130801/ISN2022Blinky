@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 //import bonus.SuperBonus;
 import bonus.SuperBonus;
-import decor.GestionDecor;
+import bonus.decor.GestionDecor;
 import monstre.Bonhomme;
 import object.Joueur;
 
@@ -54,9 +54,9 @@ public class Jeu extends JPanel implements Runnable{
 	
 	// Parentsobject et Object
 	public Joueur joueur= new Joueur(this,entrerClavier);
-	public SuperBonus obj[] = new SuperBonus[10];
-	public Parentsobject monstre[]= new Parentsobject[10];
-	public Parentsobject Fmonstre[]= new Parentsobject[10];
+	public SuperBonus obj[] = new SuperBonus[50];
+	public Parentsobject monstre[]= new Parentsobject[50];
+	public Parentsobject Fmonstre[]= new Parentsobject[50];
 	
 
 	
@@ -73,7 +73,7 @@ public class Jeu extends JPanel implements Runnable{
 	public void setUpGame(){
 		set.setObjects();
 		set.setMonstre();
-		//playMusic(0);
+		playMusic(0);
 	}
 	public void startGameThread() {
 		gameThread=new Thread(this);
@@ -217,7 +217,7 @@ public class Jeu extends JPanel implements Runnable{
 				}
 			}
 			else if(destroy) {
-				//stopMusic();
+				stopMusic();
 				Window.destroy();
 			}
 			else  {

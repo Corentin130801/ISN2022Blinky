@@ -14,11 +14,16 @@ public class Setter {
         this.nouveaujeu = nouveaujeu;
     }
 
-    public  void setObjects(){
+	public Jeu getNouveaujeu() {
+		return nouveaujeu;
+	}
+
+	public  void setObjects(){
 
         nouveaujeu.obj[0] = new ObjEclair();
         nouveaujeu.obj[0].worldX = 28*nouveaujeu.tailleCarreaux;
-        nouveaujeu.obj[0].worldY = 8*nouveaujeu.tailleCarreaux;
+        nouveaujeu.obj[0].worldY = 9*nouveaujeu.tailleCarreaux;
+		//System.out.println(nouveaujeu.obj[0].worldX);
         
         nouveaujeu.obj[1] = new ObjEclair();
         nouveaujeu.obj[1].worldX = 30*nouveaujeu.tailleCarreaux;
@@ -57,7 +62,7 @@ public class Setter {
     public void setMonstre(){
     	nouveaujeu.Fmonstre[0]= new Fantome(nouveaujeu);
     	nouveaujeu.Fmonstre[0].worldX = 22*nouveaujeu.tailleCarreaux;
-    	nouveaujeu.Fmonstre[0].worldY = 7*nouveaujeu.tailleCarreaux;
+    	nouveaujeu.Fmonstre[0].worldY = 10*nouveaujeu.tailleCarreaux;
     	
     	nouveaujeu.Fmonstre[1]= new Fantome(nouveaujeu);
     	nouveaujeu.Fmonstre[1].worldX = 21*nouveaujeu.tailleCarreaux;
@@ -137,4 +142,16 @@ public class Setter {
 		nouveaujeu.monstre[9].worldX = 23*nouveaujeu.tailleCarreaux;
 		nouveaujeu.monstre[9].worldY = 32*nouveaujeu.tailleCarreaux;
     }
+
+	public int getObjectX(int k){
+		int X = nouveaujeu.obj[k].worldX;
+		return X;
+	}
+	private int getObjectY(int k){
+		int Y = nouveaujeu.obj[k].worldY;
+		return Y;
+	}
+
+
+
 }

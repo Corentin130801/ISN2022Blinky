@@ -1,0 +1,10 @@
+## Retro Sprint 4
+
+Sur ce sprint 4, malgré les vacances de Noël, on a pu accomplir toutes les tâches que l'on s'était donnée
+dans le backlog de ce sprint. Le professeur nous a demandé de rajouter une fonctionnalité et on a réussis
+à l'appliquer.
+De plus, nous sommes satisfaits des tests JUnit que nous avons effectué.
+Pour finir concernant ce Sprint 4, c'est le seul parmi les 4 sprints où on a réussis 100% des tâches
+que l'on s'était données. Il peut y avoir deux explications.
+Tout d'abord, on a été plus concis, précis quand on s'est donné des fonctionnalités à ajouter.
+La deuxième explication est aussi dûe à la progression que l'on a faite en Java.
